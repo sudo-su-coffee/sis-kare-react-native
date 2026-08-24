@@ -4,7 +4,7 @@ The React Native client is a presentation layer and never a source of authorizat
 
 ## Client safeguards
 
-Production sessions are designed for the operating system’s protected keychain or keystore through `react-native-keychain`. Tokens must not be placed in AsyncStorage, application constants, source code, screenshots, analytics payloads, or logs. The Android manifest disables clear-text traffic through a network security configuration; APIs must use HTTPS with valid certificates.
+This demo does not implement login and stores no token or student record. When production authentication is added, sessions must use an operating-system keychain or keystore library. Tokens must not be placed in AsyncStorage, application constants, source code, screenshots, analytics payloads, or logs. The Android manifest disables clear-text traffic through a network security configuration; APIs must use HTTPS with valid certificates.
 
 ## Required production controls
 
