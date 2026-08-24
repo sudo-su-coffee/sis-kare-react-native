@@ -1,5 +1,10 @@
 # Bare React Native SIS KARE TODO
 
+- [x] Document the React Native Android size-reduction strategy and configure release-size optimizations.
+- [x] Create a no-install mobile Safari preview that follows the native SIS KARE screen structure.
+- [x] Publish and verify the iPhone-accessible live preview link.
+- [x] Build, inspect, and report the size of an optimized Android release artifact.
+
 - [x] Assess the fastest available local or containerized Android SDK build path.
 - [x] Prepare the Android SDK and build the bare React Native debug APK.
 - [x] Verify the APK artifact and deliver it with reproducible local build instructions.

@@ -1,0 +1,29 @@
+:root {
+  background: #e9ebe8;
+  color: #15244a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { min-height: 100%; margin: 0; }
+
+body {
+  min-height: 100dvh;
+  background: #e9ebe8;
+}
+
+#root {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: #f7f6f0;
+  box-shadow: 0 0 0 1px rgba(21, 36, 74, .05), 0 24px 60px rgba(21, 36, 74, .12);
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+@media (max-width: 430px) {
+  #root { max-width: none; box-shadow: none; }
+}
