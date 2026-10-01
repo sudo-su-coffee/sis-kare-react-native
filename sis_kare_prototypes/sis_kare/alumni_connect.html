@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alumni Connect | SIS KARE Prototype</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#b6c7eb",
+                        "secondary-container": "#39b8fd",
+                        "on-error-container": "#93000a",
+                        "outline": "#75777e",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#081b38",
+                        "on-primary-fixed-variant": "#374765",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "outline-variant": "#c5c6ce",
+                        "secondary": "#006591",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#d7e2ff",
+                        "on-surface": "#0b1c30",
+                        "inverse-surface": "#213145",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#44474d",
+                        "tertiary": "#141719",
+                        "tertiary-fixed": "#e0e3e5",
+                        "on-secondary-container": "#004666",
+                        "secondary-fixed-dim": "#89ceff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#001e2f",
+                        "secondary-fixed": "#c9e6ff",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#8293b5",
+                        "on-background": "#0b1c30",
+                        "primary-container": "#1a2b48",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary": "#ffffff",
+                        "primary": "#031632",
+                        "surface-container": "#e5eeff",
+                        "on-tertiary-fixed": "#191c1e",
+                        "surface-dim": "#cbdbf5",
+                        "background": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#004c6e",
+                        "surface-tint": "#4e5f7e",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary-container": "#909395",
+                        "tertiary-container": "#282c2e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "1.5rem",
+                        "inline-gap": "0.75rem",
+                        "stack-gap": "1rem",
+                        "container-margin": "1rem",
+                        "card-padding": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "body-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .card-elevation {
+            box-shadow: 0 2px 4px rgba(26, 43, 72, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .active-tab-indicator {
+            position: relative;
+        }
+        .active-tab-indicator::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background-color: currentColor;
+            border-radius: 50%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-container-margin py-3 w-full fixed top-0 z-50 bg-primary dark:bg-primary shadow-sm">
+<div class="flex items-center gap-3">
+<button class="text-on-primary hover:bg-primary-container/20 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">KARE-SIS</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-headline-sm text-headline-sm text-on-primary hidden md:block">Alumni Connect</span>
+<button class="text-on-primary hover:bg-primary-container/20 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</header>
+<main class="pt-20 px-container-margin max-w-[480px] mx-auto space-y-6">
+<!-- Hero Section -->
+<section class="mt-4">
+<div class="relative overflow-hidden rounded-xl h-48 bg-primary-container text-on-primary p-6 flex flex-col justify-end">
+<div class="absolute top-0 right-0 opacity-20 pointer-events-none translate-x-1/4 -translate-y-1/4">
+<span class="material-symbols-outlined text-[160px]">school</span>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile relative z-10">Connect with Success</h2>
+<p class="font-body-sm text-body-sm text-on-primary-container mt-1 relative z-10">Access the knowledge of 25,000+ graduates worldwide.</p>
+</div>
+</section>
+<!-- Mentor Match Carousel -->
+<section class="space-y-3">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm text-primary">Mentor Match</h3>
+<a class="font-label-bold text-label-bold text-secondary uppercase tracking-wider" href="#">See All</a>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2">
+<!-- Mentor Card 1 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-lowest rounded-xl card-elevation p-card-padding space-y-3">
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A professional studio portrait of a female software engineering leader in her early 30s, wearing a crisp navy blazer, smiling warmly against a soft grey corporate background. The lighting is clean and high-key, emphasizing a modern professional and academic aesthetic with sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgV0KTRRI37xkCfAjJOAEVudCTO-P5GaHhI9ol9tTrvg7ddDSBhwLBtDriQn6nr6lwVIXotuPfxPGhfYqZnMTbqL-AYbxeXKWAHQRQ9ts3asnSF-dWWjB1B__f8nq9JRQBXjWdwqbJxbLa5WbcVLnrOdpBmO8ENTR1cY7jLcWBFOXXFu1wPZe9ho5MuacodZULpShaPT8_DQQT2V8hWvpHZSWSu2uxCmZiiscc7PJPIcBdCvENJbDBiW_92KiQ40owQoled3gAjk8"/>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Dr. Elena Vance</p>
+<p class="text-[10px] text-on-surface-variant font-medium">Sr. Architect @ CloudScale</p>
+</div>
+</div>
+<div class="bg-surface-container rounded-lg p-3">
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed line-clamp-2">"Specializing in distributed systems and backend infrastructure. Happy to help with career paths."</p>
+</div>
+<button class="w-full bg-primary text-on-primary py-2 rounded-lg font-label-bold text-label-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+                        Connect
+                    </button>
+</div>
+<!-- Mentor Card 2 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-lowest rounded-xl card-elevation p-card-padding space-y-3">
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A portrait of a male alumnus in a creative studio environment, wearing a stylish turtleneck and glasses, reflecting intellectual curiosity. The background is a blurred office with warm wood tones and professional lighting, conveying academic rigor and corporate success in the design industry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD3mIMYbM1d-Fyjpj_9Fi2AvcmV4kWCDMk1WsUlQYPwqt1PG3doT9MhXWR-Ednfg6u8nNOND2Z2NP8xfr3yqsz2JbzkiAS5myXozJRruuqsYtDyuLkmUbDV9CYWOhykDkGigUdOKwi1S6KoI0srkEwLVTds8UATNAAOShQMCj1zWo9FODyEZmaG_aGr8xxYg4_zrs0nrjltTDWw5SKb8ktpY2Zip9Ao8KuF8Is1bzraylPdVe0B1jyGkevfl_rgVbytwolouEYJ_g"/>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Marcus Chen</p>
+<p class="text-[10px] text-on-surface-variant font-medium">VP Design @ FinTech Pro</p>
+</div>
+</div>
+<div class="bg-surface-container rounded-lg p-3">
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed line-clamp-2">"Expertise in Product Strategy and UI/UX. Let's discuss building meaningful user experiences."</p>
+</div>
+<button class="w-full bg-primary text-on-primary py-2 rounded-lg font-label-bold text-label-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+                        Connect
+                    </button>
+</div>
+</div>
+</section>
+<!-- Alumni Events Calendar -->
+<section class="space-y-3">
+<h3 class="font-headline-sm text-headline-sm text-primary">Upcoming Events</h3>
+<div class="bg-surface-container-lowest rounded-xl card-elevation overflow-hidden">
+<div class="flex items-stretch border-b border-outline-variant">
+<div class="w-16 bg-surface-container flex flex-col items-center justify-center py-4">
+<span class="font-label-bold text-label-bold text-secondary uppercase">Oct</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary">24</span>
+</div>
+<div class="flex-1 p-4 flex flex-col justify-center">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Annual Tech Symposium</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">schedule</span>
+<span class="text-[11px] text-on-surface-variant font-medium">10:00 AM • Main Hall</span>
+</div>
+</div>
+<button class="px-4 text-primary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="flex items-stretch">
+<div class="w-16 bg-surface-container flex flex-col items-center justify-center py-4">
+<span class="font-label-bold text-label-bold text-secondary uppercase">Nov</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary">02</span>
+</div>
+<div class="flex-1 p-4 flex flex-col justify-center">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">AI Career Roadmap 2024</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">videocam</span>
+<span class="text-[11px] text-on-surface-variant font-medium">Virtual • Google Meet</span>
+</div>
+</div>
+<button class="px-4 text-primary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Job Referrals (Bento Style) -->
+<section class="space-y-3">
+<h3 class="font-headline-sm text-headline-sm text-primary">Job Referrals</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-1 bg-surface-container-high rounded-xl p-4 flex flex-col justify-between min-h-[140px] border border-outline-variant/30">
+<div class="flex justify-between items-start">
+<div class="bg-surface-container-lowest p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">rocket_launch</span>
+</div>
+<span class="bg-secondary text-on-secondary text-[9px] px-2 py-0.5 rounded-full font-bold uppercase">Hot</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Data Analyst</p>
+<p class="text-[10px] text-on-surface-variant">Google • London</p>
+</div>
+</div>
+<div class="col-span-1 bg-white rounded-xl p-4 flex flex-col justify-between min-h-[140px] card-elevation">
+<div class="flex justify-between items-start">
+<div class="bg-surface-container p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary">database</span>
+</div>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">ML Engineer</p>
+<p class="text-[10px] text-on-surface-variant">NVIDIA • Austin</p>
+</div>
+</div>
+<div class="col-span-2 bg-primary text-on-primary rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-primary-container p-3 rounded-full">
+<span class="material-symbols-outlined text-secondary-container">work</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm">124 New Postings</p>
+<p class="text-[11px] text-on-primary-container">Exclusively for KARE Alumni</p>
+</div>
+</div>
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+</section>
+<!-- Alumni Success Stories Feed -->
+<section class="space-y-3">
+<h3 class="font-headline-sm text-headline-sm text-primary">Success Stories</h3>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest rounded-xl card-elevation p-card-padding space-y-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A candid photo of a group of young graduates celebrating in front of an ivory university building. They are laughing, wearing graduation caps, with one person holding a futuristic looking tech award. The sunlight is warm and golden, symbolizing a bright future and academic achievement in a modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMTWIMRBIM1RDIQA9l_85mRnPblRtaPP8ZaFq3O2_3ZPJhWiacQ8zoIAO8cbURX8R6oVDZgHDtMuE7scmkIK0j7q9LVACvyPhqGJYP4MncbLpKscswe5Rw8HeBfhKXzbk1oqldLZt6NWuHSawfM-yzlLJjtZgXAEwbZXJgNQpoI93QwxjqHINLUSW2k4PLHD9Kc9q2s9MYNbCTqEcl65PrEmfbCIct_xOPIBaHYkKaRCWR-h56s9j5zPN1KX5Z-kWtSCV8Eb5X00s"/>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">The 2021 Biotech Cohort</p>
+<p class="text-[10px] text-on-surface-variant">15 mins ago • Featured</p>
+</div>
+</div>
+<div class="w-full h-40 bg-cover bg-center rounded-lg" data-alt="A modern research laboratory with clean white benches, advanced scientific equipment, and high-key clinical lighting. Two alumni in professional lab coats are collaborating over a holographic data display, symbolizing the intersection of academic foundation and cutting-edge corporate research. The aesthetic is pristine and high-contrast." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjzZwRkrTXvZw9cvUzXQm3zd3qr9QP_vNvtcoT-77C_-RsPIchehTBK9vjG8uxrt2wAeaym_C0tQf5H2u2Lm5T8rK4L58R5QaEmdTGPz7tdXfXxsW_lgTGY3VdyekOvwXMkrK3Rd9543v16VWROuTOA0wJBap6tGlUn-te9ffaANpzF81LuxS_JshtHjK6z-Oy5noOVKdG3NtuTabrzhrXaIJk5rqTDTS35v-gUMMfqayghPIDqE7ivsi0dR-5Y_ulrtnN-c7_bVM')"></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                        From the KARE labs to pioneering personalized medicine. See how this group of alumni secured $5M in seed funding for their med-tech startup.
+                    </p>
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant">
+<div class="flex gap-4">
+<button class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+<span class="text-[11px] font-bold">1.2k</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">comment</span>
+<span class="text-[11px] font-bold">84</span>
+</button>
+</div>
+<button class="text-secondary">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface-container rounded-t-xl shadow-lg border-t border-outline-variant dark:border-outline">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-2 rounded-lg transition-transform active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-2 rounded-lg transition-transform active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary font-bold hover:bg-surface-container-highest/50 p-2 rounded-lg transition-transform active:scale-95 duration-150 active-tab-indicator" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="font-label-md text-label-md">Connect</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-2 rounded-lg transition-transform active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Academics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-2 rounded-lg transition-transform active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-md text-label-md">More</span>
+</a>
+</nav>
+<!-- FAB for Quick Mentorship Request -->
+<button class="fixed bottom-24 right-6 bg-secondary-container text-on-secondary-container p-4 rounded-full shadow-2xl flex items-center justify-center z-40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[28px]">chat_bubble</span>
+</button>
+<script>
+        // Simple micro-interactions for cards
+        document.querySelectorAll('.card-elevation').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+                card.style.transition = 'transform 0.1s ease-in-out';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

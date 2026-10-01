@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#75777e",
+                    "tertiary-container": "#282c2e",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "surface": "#f8f9ff",
+                    "tertiary": "#141719",
+                    "surface-dim": "#cbdbf5",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#004c6e",
+                    "background": "#f8f9ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-container": "#e5eeff",
+                    "on-secondary-fixed": "#001e2f",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "on-surface": "#0b1c30",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-container": "#8293b5",
+                    "inverse-primary": "#b6c7eb",
+                    "on-background": "#0b1c30",
+                    "on-secondary": "#ffffff",
+                    "primary": "#031632",
+                    "secondary-fixed": "#c9e6ff",
+                    "on-surface-variant": "#44474d",
+                    "tertiary-fixed": "#e0e3e5",
+                    "secondary-container": "#39b8fd",
+                    "primary-fixed": "#d7e2ff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#191c1e",
+                    "primary-fixed-dim": "#b6c7eb",
+                    "on-tertiary-container": "#909395",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#213145",
+                    "primary-container": "#1a2b48",
+                    "outline-variant": "#c5c6ce",
+                    "secondary-fixed-dim": "#89ceff",
+                    "on-secondary-container": "#004666",
+                    "surface-variant": "#d3e4fe",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "on-primary-fixed": "#081b38",
+                    "on-primary-fixed-variant": "#374765",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "card-padding": "1.25rem",
+                    "inline-gap": "0.75rem",
+                    "stack-gap": "1rem",
+                    "container-margin": "1rem",
+                    "section-padding": "1.5rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Manrope"],
+                    "headline-sm": ["Manrope"],
+                    "display-lg": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "label-bold": ["Manrope"],
+                    "body-sm": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "display-lg-mobile": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .map-bg {
+            background-image: radial-gradient(circle at 2px 2px, #e2e8f0 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <title>Campus Map | SIS KARE Prototype</title>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-primary shadow-md flex justify-between items-center h-16 px-container-margin transition-colors duration-200">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">KARE-SIS</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-on-primary/20">
+<img alt="Student Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFpgSmh-icXhwwIGehzCMrBo-j-M8-sy9qnoqMxOBHfffL_VYqjQF5x7QDQNIDsKZ9uVM9B8obXD8gKhA50DwdZbFE1-ahyXZa1jPGzpUrHRq9D3efQQZQHiO30KVj9S3fk52H5V7h0eBACl3OkflXqatWIL3ZXCIcxRJ3AJInOpvFUeKfl4j_5-_jeNU5TVXSiwMi5J8AcxEVDtEuCRJyEOfEq_SxM3Kgl9UkbHKhgtCl0WvTCiqIYolhmNCd_yaoIAv8Sdw-IzU"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 px-container-margin max-w-[480px] mx-auto space-y-stack-gap">
+<!-- Search and Map Controls -->
+<div class="flex flex-col gap-stack-gap">
+<div class="relative">
+<input class="w-full h-12 pl-12 pr-4 rounded-lg border border-outline-variant bg-surface-container-lowest font-body-md text-on-surface focus:ring-2 focus:ring-secondary-container focus:border-transparent outline-none transition-all" placeholder="Find Building" type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+<button class="flex items-center gap-2 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full whitespace-nowrap transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[18px]">school</span>
+<span class="font-label-bold text-label-bold">Academic</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full whitespace-nowrap transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[18px]">home</span>
+<span class="font-label-bold text-label-bold">Hostels</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full whitespace-nowrap transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+<span class="font-label-bold text-label-bold">Food Court</span>
+</button>
+</div>
+</div>
+<!-- Campus Map Container -->
+<div class="relative w-full aspect-[3/4] bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden shadow-sm map-bg">
+<!-- Simulated Map Visual -->
+<img class="w-full h-full object-cover opacity-90 mix-blend-multiply" data-alt="A highly detailed illustrative campus map for a university in a modern light-mode aesthetic. The map features stylized 3D isometric buildings including a central library with a glass dome, rectangular academic blocks, and green spaces with pathways. The color palette consists of navy blue, soft sky blue, and clean grays on a light background. Buildings are labeled with clear professional typography. The lighting is bright and even, conveying academic precision and organizational clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUdKcVSCxs3cJLHRihKo8-f0ErOsAIIP8LON_nB3i8_uSkvFBi6AlzyETvDb3uyWUuqOoP4pfb4CKLMghUF0FYHavT1qluV4-Awj95D-Iw3t7TI7QmJlCQhYVTjjEv3ZI4GeDI9O4zQXfARAQ9C9eXAeW72OthoE4-EB7QzeJSDzCocsEXMgbnho6JEpnNeOipkkRqr7T-cQO22tVBXZcRVrmKNgsSUZexzqDS02Q41EOo82i69O3Z_Rp7uS4nfFpDhLN0-h2gnIU"/>
+<!-- My Location Marker -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="relative">
+<div class="absolute inset-0 bg-secondary-container rounded-full animate-ping opacity-75"></div>
+<div class="relative bg-secondary text-on-secondary w-8 h-8 rounded-full flex items-center justify-center border-2 border-white shadow-lg">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">person_pin_circle</span>
+</div>
+</div>
+<div class="mt-1 px-2 py-0.5 bg-secondary text-on-secondary text-[10px] rounded font-label-bold shadow-sm">You are here</div>
+</div>
+<!-- Building Markers (Simplified Labels) -->
+<div class="absolute top-[20%] left-[30%]">
+<div class="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm px-2 py-1 rounded border border-outline-variant shadow-sm transition-transform hover:scale-105 cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-primary">local_library</span>
+<span class="font-label-bold text-label-bold text-on-surface">Library</span>
+</div>
+</div>
+<div class="absolute top-[45%] right-[15%]">
+<div class="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm px-2 py-1 rounded border border-outline-variant shadow-sm transition-transform hover:scale-105 cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-primary">apartment</span>
+<span class="font-label-bold text-label-bold text-on-surface">Hostel Block A</span>
+</div>
+</div>
+<div class="absolute bottom-[25%] left-[20%]">
+<div class="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm px-2 py-1 rounded border border-outline-variant shadow-sm transition-transform hover:scale-105 cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-primary">school</span>
+<span class="font-label-bold text-label-bold text-on-surface">Academic Block 1</span>
+</div>
+</div>
+<div class="absolute bottom-[10%] right-[30%]">
+<div class="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm px-2 py-1 rounded border border-outline-variant shadow-sm transition-transform hover:scale-105 cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-primary">restaurant</span>
+<span class="font-label-bold text-label-bold text-on-surface">Food Court</span>
+</div>
+</div>
+<!-- Map UI Controls -->
+<div class="absolute bottom-4 right-4 flex flex-col gap-2">
+<button class="w-10 h-10 bg-white rounded-lg shadow-lg flex items-center justify-center text-primary border border-outline-variant active:bg-surface-variant">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="w-10 h-10 bg-white rounded-lg shadow-lg flex items-center justify-center text-primary border border-outline-variant active:bg-surface-variant">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<button class="w-10 h-10 bg-secondary-container text-on-secondary-container rounded-lg shadow-lg flex items-center justify-center transition-transform active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</button>
+</div>
+</div>
+<!-- Quick Destinations List -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-card-padding shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-stack-gap">Nearby Highlights</h3>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container transition-colors hover:bg-surface-container-high cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white">coffee</span>
+</div>
+<div>
+<div class="font-label-bold text-label-bold text-on-surface">Main Cafeteria</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">250m • Open until 10 PM</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container transition-colors hover:bg-surface-container-high cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white">fitness_center</span>
+</div>
+<div>
+<div class="font-label-bold text-label-bold text-on-surface">Sports Complex</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">400m • Training Session at 5 PM</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 bg-surface border-t border-outline-variant shadow-lg flex justify-around items-center px-2 pb-safe z-50">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-transform active:scale-90">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-transform active:scale-90">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-transform active:scale-90">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Fees</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-label-md">Academics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-transform active:scale-90">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-md text-label-md">More</span>
+</div>
+</nav>
+<!-- FAB (Suppressed for this specific sub-view according to instructions, but logic remains if needed for primary tasks) -->
+</body></html>

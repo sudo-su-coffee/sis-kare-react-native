@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-dim": "#cbdbf5",
+                  "on-secondary-container": "#004666",
+                  "inverse-primary": "#b6c7eb",
+                  "surface-container-low": "#eff4ff",
+                  "on-tertiary": "#ffffff",
+                  "surface-container-lowest": "#ffffff",
+                  "on-primary-fixed-variant": "#374765",
+                  "primary-fixed": "#d7e2ff",
+                  "on-surface": "#0b1c30",
+                  "on-tertiary-fixed-variant": "#444749",
+                  "primary": "#031632",
+                  "secondary": "#006591",
+                  "surface-variant": "#d3e4fe",
+                  "on-error": "#ffffff",
+                  "inverse-surface": "#213145",
+                  "tertiary-fixed-dim": "#c4c7c9",
+                  "surface-container-high": "#dce9ff",
+                  "on-tertiary-container": "#909395",
+                  "on-primary": "#ffffff",
+                  "tertiary": "#141719",
+                  "on-tertiary-fixed": "#191c1e",
+                  "error-container": "#ffdad6",
+                  "surface-container": "#e5eeff",
+                  "on-background": "#0b1c30",
+                  "surface": "#f8f9ff",
+                  "primary-fixed-dim": "#b6c7eb",
+                  "on-primary-container": "#8293b5",
+                  "on-secondary-fixed-variant": "#004c6e",
+                  "secondary-container": "#39b8fd",
+                  "primary-container": "#1a2b48",
+                  "on-secondary": "#ffffff",
+                  "outline-variant": "#c5c6ce",
+                  "on-primary-fixed": "#081b38",
+                  "surface-tint": "#4e5f7e",
+                  "secondary-fixed-dim": "#89ceff",
+                  "on-secondary-fixed": "#001e2f",
+                  "surface-bright": "#f8f9ff",
+                  "background": "#f8f9ff",
+                  "error": "#ba1a1a",
+                  "on-error-container": "#93000a",
+                  "surface-container-highest": "#d3e4fe",
+                  "outline": "#75777e",
+                  "secondary-fixed": "#c9e6ff",
+                  "tertiary-container": "#282c2e",
+                  "tertiary-fixed": "#e0e3e5",
+                  "inverse-on-surface": "#eaf1ff",
+                  "on-surface-variant": "#44474d"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "container-margin": "1rem",
+                  "card-padding": "1.25rem",
+                  "inline-gap": "0.75rem",
+                  "section-padding": "1.5rem",
+                  "stack-gap": "1rem"
+          },
+          "fontFamily": {
+                  "display-lg-mobile": ["Manrope"],
+                  "body-lg": ["Manrope"],
+                  "headline-sm": ["Manrope"],
+                  "headline-md": ["Manrope"],
+                  "label-md": ["Manrope"],
+                  "label-bold": ["Manrope"],
+                  "display-lg": ["Manrope"],
+                  "body-sm": ["Manrope"],
+                  "body-md": ["Manrope"]
+          },
+          "fontSize": {
+                  "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                  "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                  "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                  "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                  "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                  "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                  "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body { font-family: 'Manrope', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <title>Circulars | SIS KARE Prototype</title>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar Component -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-primary shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary" data-icon="school">school</span>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">KARE-SIS</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-on-primary/20">
+<img alt="Student Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a university student with a neutral expression, wearing academic casual attire. The lighting is soft and studio-quality, emphasizing a clean and scholarly appearance. The background is a solid, subtle corporate grey that aligns with a high-end educational portal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5sjkMj-OrW5YAK6-hX5sF1FjfchnxBa80nwV9nM-3TV6b7Nj9TE5V5OEvAb-qv5-3QwvDlnZps3cVVoahQNbWgxg5viAliOvXfZVPWsmo2zO-n078RtXxYXnTsb31Qqp7QgfugFPGCZeb4_-13h_iAqYfNpcpiX25F39ZMgm6YghI49Fgfybv40ydyfs0dh7pO-y8UPpa9MdwpaONYHkQzf7ScHAlid78K0B28slCwnoWEBmEgX18xe29IiRAiNkdBkCERtimYDc"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 px-container-margin max-w-[480px] mx-auto">
+<!-- Hero/Header Section -->
+<section class="mt-6 mb-8">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary">Circulars</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Official university announcements and document repository.</p>
+</section>
+<!-- Filter Chips (Horizontal Scroll) -->
+<section class="flex gap-2 overflow-x-auto scrollbar-hide mb-6 pb-2">
+<button class="px-4 py-2 rounded-full bg-primary text-on-primary font-label-bold text-label-bold whitespace-nowrap">All Circulars</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-bold text-label-bold whitespace-nowrap hover:bg-surface-dim transition-colors">Examinations</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-bold text-label-bold whitespace-nowrap hover:bg-surface-dim transition-colors">Holidays</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-bold text-label-bold whitespace-nowrap hover:bg-surface-dim transition-colors">Events</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-bold text-label-bold whitespace-nowrap hover:bg-surface-dim transition-colors">General</button>
+</section>
+<!-- Circulars List -->
+<div class="flex flex-col gap-4">
+<!-- List Item 1 -->
+<article class="bg-surface border border-outline-variant rounded-xl p-card-padding shadow-[0_2px_4px_rgba(0,0,0,0.02)] flex flex-col gap-3">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-secondary-container/20 text-on-secondary-container font-label-bold text-[10px] uppercase tracking-wider w-fit">Examinations</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Final Semester Examination Schedule - Fall 2023</h3>
+</div>
+<button class="p-2 rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="numbers">numbers</span>
+<span class="font-label-bold text-label-bold">REF: KARE/EXAM/2023/042</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-bold text-label-bold">Oct 24, 2023</span>
+</div>
+</div>
+</article>
+<!-- List Item 2 -->
+<article class="bg-surface border border-outline-variant rounded-xl p-card-padding shadow-[0_2px_4px_rgba(0,0,0,0.02)] flex flex-col gap-3">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-bold text-[10px] uppercase tracking-wider w-fit">Holidays</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Winter Break and Campus Closure Notification</h3>
+</div>
+<button class="p-2 rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="numbers">numbers</span>
+<span class="font-label-bold text-label-bold">REF: KARE/ADMIN/2023/115</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-bold text-label-bold">Oct 20, 2023</span>
+</div>
+</div>
+</article>
+<!-- List Item 3 -->
+<article class="bg-surface border border-outline-variant rounded-xl p-card-padding shadow-[0_2px_4px_rgba(0,0,0,0.02)] flex flex-col gap-3">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-bold text-[10px] uppercase tracking-wider w-fit">General</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Updated Library Access Protocols and Timings</h3>
+</div>
+<button class="p-2 rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="numbers">numbers</span>
+<span class="font-label-bold text-label-bold">REF: KARE/LIB/2023/009</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-bold text-label-bold">Oct 18, 2023</span>
+</div>
+</div>
+</article>
+<!-- List Item 4 -->
+<article class="bg-surface border border-outline-variant rounded-xl p-card-padding shadow-[0_2px_4px_rgba(0,0,0,0.02)] flex flex-col gap-3">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-secondary-container/20 text-on-secondary-container font-label-bold text-[10px] uppercase tracking-wider w-fit">Events</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Annual Research Symposium Call for Papers</h3>
+</div>
+<button class="p-2 rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="numbers">numbers</span>
+<span class="font-label-bold text-label-bold">REF: KARE/RES/2023/021</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-bold text-label-bold">Oct 15, 2023</span>
+</div>
+</div>
+</article>
+<!-- List Item 5 -->
+<article class="bg-surface border border-outline-variant rounded-xl p-card-padding shadow-[0_2px_4px_rgba(0,0,0,0.02)] flex flex-col gap-3">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-bold text-[10px] uppercase tracking-wider w-fit">General</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Revision of Student Welfare Fund Contribution</h3>
+</div>
+<button class="p-2 rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="numbers">numbers</span>
+<span class="font-label-bold text-label-bold">REF: KARE/FIN/2023/055</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-bold text-label-bold">Oct 12, 2023</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Load More Action -->
+<div class="mt-8 flex justify-center">
+<button class="flex items-center gap-2 px-6 py-3 rounded-xl border border-primary text-primary font-label-bold text-label-bold hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+        View Older Circulars
+      </button>
+</div>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center bg-surface py-2 pb-safe shadow-[0_-2px_10px_rgba(0,0,0,0.05)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Fees</span>
+</div>
+<!-- Academics Active State -->
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-label-md">Academics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="font-label-md text-label-md">More</span>
+</div>
+</nav>
+</body></html>

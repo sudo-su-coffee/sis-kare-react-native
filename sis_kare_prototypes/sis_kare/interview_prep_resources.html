@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-container-high": "#dce9ff",
+                  "surface-container-lowest": "#ffffff",
+                  "on-surface": "#0b1c30",
+                  "surface-container-highest": "#d3e4fe",
+                  "primary-fixed-dim": "#b6c7eb",
+                  "on-secondary": "#ffffff",
+                  "on-primary-container": "#8293b5",
+                  "secondary-fixed": "#c9e6ff",
+                  "secondary-fixed-dim": "#89ceff",
+                  "on-secondary-fixed-variant": "#004c6e",
+                  "on-error": "#ffffff",
+                  "error-container": "#ffdad6",
+                  "on-secondary-container": "#004666",
+                  "inverse-surface": "#213145",
+                  "tertiary-fixed-dim": "#c4c7c9",
+                  "surface-tint": "#4e5f7e",
+                  "on-tertiary-container": "#909395",
+                  "surface-container-low": "#eff4ff",
+                  "secondary-container": "#39b8fd",
+                  "on-tertiary-fixed-variant": "#444749",
+                  "primary-fixed": "#d7e2ff",
+                  "background": "#f8f9ff",
+                  "on-tertiary": "#ffffff",
+                  "on-surface-variant": "#44474d",
+                  "surface-container": "#e5eeff",
+                  "surface": "#f8f9ff",
+                  "outline-variant": "#c5c6ce",
+                  "on-primary": "#ffffff",
+                  "on-error-container": "#93000a",
+                  "inverse-on-surface": "#eaf1ff",
+                  "tertiary-fixed": "#e0e3e5",
+                  "primary": "#031632",
+                  "surface-bright": "#f8f9ff",
+                  "on-tertiary-fixed": "#191c1e",
+                  "surface-dim": "#cbdbf5",
+                  "surface-variant": "#d3e4fe",
+                  "tertiary": "#141719",
+                  "on-primary-fixed": "#081b38",
+                  "on-secondary-fixed": "#001e2f",
+                  "secondary": "#006591",
+                  "primary-container": "#1a2b48",
+                  "outline": "#75777e",
+                  "error": "#ba1a1a",
+                  "tertiary-container": "#282c2e",
+                  "on-primary-fixed-variant": "#374765",
+                  "on-background": "#0b1c30",
+                  "inverse-primary": "#b6c7eb"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "stack-gap": "1rem",
+                  "card-padding": "1.25rem",
+                  "inline-gap": "0.75rem",
+                  "container-margin": "1rem",
+                  "section-padding": "1.5rem"
+          },
+          "fontFamily": {
+                  "label-md": ["Manrope"],
+                  "label-bold": ["Manrope"],
+                  "headline-sm": ["Manrope"],
+                  "headline-md": ["Manrope"],
+                  "body-md": ["Manrope"],
+                  "display-lg-mobile": ["Manrope"],
+                  "display-lg": ["Manrope"],
+                  "body-lg": ["Manrope"],
+                  "body-sm": ["Manrope"]
+          },
+          "fontSize": {
+                  "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                  "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                  "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                  "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                  "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                  "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                  "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body { font-family: 'Manrope', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <title>Interview Preparation Resources | SIS KARE Prototype</title>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col items-center">
+<!-- TopAppBar Shell -->
+<header class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container shadow-sm fixed top-0 w-full z-50 max-w-[480px]">
+<div class="flex justify-between items-center w-full px-container-margin h-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container">
+<img alt="Student Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a young student dressed in a crisp white shirt against a neutral grey background. The lighting is bright and directional, emphasizing clarity and professional intent. The overall aesthetic is clean and academic, matching a corporate light-mode design system with high contrast and organized composure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd488-vR3M6NgNV4kbmlzDfOfBmKHr-7EglT3m9oUpcqC5PkxiNb7XuvvXPIEFOluV93_vORcfJk2-sobvtaGlWGrtSIePsI5JTO9CrielBxleY9pwjCXSuVE0ZGogWUzbKxT1qs4Htp1YyLrNAIlUNLOls2ocYJFYcNp2dQuys7EY8iG28U2XH1D7Hn8m-TO6HxXwqIsHff_YeJNMb8qU1qMxIX1szsCCej-JGE9lXSZ41Y-aUsj67a7zSUUOjL-75FrLQ9mF5lk"/>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">Career Services</h1>
+</div>
+<button class="material-symbols-outlined p-2 hover:bg-primary-container/20 transition-colors rounded-full" data-icon="notifications">notifications</button>
+</div>
+</header>
+<main class="w-full max-w-[480px] px-container-margin pt-20 pb-24 flex flex-col gap-stack-gap">
+<!-- Hero / Active Journey -->
+<section class="mt-2">
+<div class="bg-primary-container rounded-xl p-card-padding text-on-primary flex flex-col gap-3 shadow-lg">
+<div class="flex items-center justify-between">
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-bold text-label-bold">UPCOMING MOCK</span>
+<span class="font-label-md text-label-md opacity-80 text-on-primary-container">Oct 24, 10:30 AM</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm">Behavioral Drill with Senior Analyst</h2>
+<div class="flex items-center gap-2 text-on-primary-container">
+<span class="material-symbols-outlined text-[18px]" data-icon="videocam">videocam</span>
+<span class="font-body-sm text-body-sm">Microsoft Teams • Online</span>
+</div>
+<button class="mt-2 bg-secondary-container text-on-secondary-container h-12 rounded-lg font-label-bold text-label-bold hover:opacity-90 transition-opacity">
+          JOIN WAITING ROOM
+        </button>
+</div>
+</section>
+<!-- Placement Statistics / Bento Grid Layout -->
+<section>
+<h3 class="font-label-bold text-label-bold text-outline mb-3 uppercase tracking-wider">Placement Insights</h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl shadow-sm">
+<p class="font-label-md text-label-md text-on-surface-variant">Avg. Package</p>
+<p class="font-display-lg-mobile text-display-lg-mobile text-primary">$82.4k</p>
+<div class="flex items-center gap-1 text-green-600 mt-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+<span class="font-label-md text-label-md">12% vs LY</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl shadow-sm">
+<p class="font-label-md text-label-md text-on-surface-variant">Placed Ratio</p>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex-1 bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-[88%]"></div>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface">88%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">240/272 Students</p>
+</div>
+</div>
+</section>
+<!-- Resources Categories -->
+<section class="flex flex-col gap-4">
+<h3 class="font-label-bold text-label-bold text-outline mb-1 uppercase tracking-wider">Interview Preparation</h3>
+<!-- Resource Card 1: Question Bank -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm flex items-center p-4 gap-4 hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]" data-icon="quiz">quiz</span>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Company Question Bank</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">450+ Real interview questions from top firms</p>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Resource Card 2: Scheduling -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm flex items-center p-4 gap-4 hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[28px]" data-icon="calendar_add_on">calendar_add_on</span>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Mock Interview Sessions</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Schedule 1-on-1 sessions with industry mentors</p>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Resource Card 3: Articles -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="h-32 w-full relative">
+<img alt="Interview Workshop" class="w-full h-full object-cover" data-alt="A clean, professional photograph of three individuals in business casual attire sitting around a modern light-wood conference table. They are engaged in a focused, collaborative discussion with a laptop and notebooks open. The lighting is bright and natural, coming from large windows, creating a welcoming and intellectually stimulating atmosphere consistent with corporate education standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuy1ZLZEdHPW3y9tLUlvdM77NZnK52tbhps3XKB2GmsDHf84TchRNs5LYKxQ8JAw1eFj-Sl0rlZdicBPxFaFEgpbK6DZ4PxJCa5-ols-9DOAWUSUUMJ2ge-QzsUcIKAW99fo5ifbNHadDo_0xnKVb7zaTjtu3IW5bW50xSQLR9khyfdcw-7Od28KE17VVfNMi6wSLHEnxvFtzPfApKpdelNJXJL7hb0gz8XKAUXNAWMhH5yy2DZFDHDGeD-9ebx4SUqGlo6GG6Ftg"/>
+<div class="absolute inset-0 bg-primary/20"></div>
+</div>
+<div class="p-4">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Ace the Technical Round</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Deep dive into data structures and algorithmic complexity for SDE roles.</p>
+<div class="flex items-center gap-4 mt-4 pt-4 border-t border-outline-variant">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+<span class="font-label-md text-label-md">8 min read</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+<span class="font-label-md text-label-md">2.4k reads</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Company Logos / Horizontal Scroll -->
+<section class="mb-6">
+<h3 class="font-label-bold text-label-bold text-outline mb-3 uppercase tracking-wider">Top Recruiters</h3>
+<div class="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+<div class="flex-shrink-0 w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center p-3">
+<img class="w-full grayscale opacity-70" data-alt="Minimalist abstract logo representing a high-tech corporate entity, rendered in a simple geometric style with clean lines. The background is a soft light blue to match the academic UI theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQOGzGYfzOHTSHGsBVDVX0cVAZeZ9OHlRZ29_Wb1s8TCZGxiUyzOBITOLU2m3SF2W6QfDMc5XDtk_MTZUoEKEt1C3yOaji_NGYxctE388jAApWxNQDUU-rekTQAZDhN8YyTUUQ7ubSgx75aP118vdrWsFRjtBzfqSeH7kmrEBZQHFNuiiaaVfyxvd7OpdYm_aXEIUR-Q1tcpQa6u9g2DiK_OfDartVB6Q8bdCCyooE4HYR6zoPSjWLpnCb_ndAz_-LDJhupciiPQc"/>
+</div>
+<div class="flex-shrink-0 w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center p-3">
+<img class="w-full grayscale opacity-70" data-alt="A clean corporate logo badge with professional typography and minimalist icons, emphasizing modern professional services. The style is consistent with a high-end educational and recruitment platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiNPhtBIN-bxWOCROd4jABfjHIfpsG6fKsEZ3fC9TX1-7690EHnh32n4-E8f3VY6UKVfhsDpsp8Qhx5EdtuOv0E-6I6fmkRNYmG3KQhxxuZ5r-2oWpH8ZGKx5nUux3IMlLwpKAckVItZERKN_kzROfovlrEqZ-5xFKHSCG2hfeL7yV8HvNtZQ-hsPK26u84vGcQibD1cFRltQ0eM6aroF-OaQ55dd9wl5FwF_Ha57aJBmLWVcyvkdT8KfLWb9h5RxMRpeLQ3DKOl0"/>
+</div>
+<div class="flex-shrink-0 w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center p-3">
+<img class="w-full grayscale opacity-70" data-alt="Stylized corporate icon featuring a modern, sans-serif lettermark. The lighting is flat and clear, ideal for a professional dashboard representing global industry leaders." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7okrSDliqmlZmYq5Di808c7wP6sln0o_OAkDC-yBpWXhwAHfh8P4MCABJnRloEOYjG4-5IyT1PyYXq7E6Jd2xxXhC8JGrQvfSYu1ZnHWpbgh-SrJA5vGH7VluIVF06oGnkvzmP3o0fQrg52OSu1In_bpqCBO0kP5jiVo7xfho2LOXLlYW7Nqx8ECQPafzfJGbEs6VFTP3mhyNEN7g1o0dT5HxbJBLU3K_TothqlJaeEh8UcKXzrZYWRizDPXyzJLQkf4Hb0icD3k"/>
+</div>
+<div class="flex-shrink-0 w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center p-3">
+<img class="w-full grayscale opacity-70" data-alt="Abstract brand emblem for a financial institution, presented as a high-contrast symbol in dark navy and white. The aesthetic is authoritative and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrazn3ZRx8U2PwCWHKal2ZCiUB-gh6m1sZp0mYZKUj_-bkVQc1hJkWrxGroDJigkQS_Jsk7CMhY4YaccRa3trlkfn4_Vr4793PGid8PXf1MA25dMAdTn0OyRV1Xp2IegG9XvssCvQV9pd5LTTuMFz9KR8AtXLdvEAf4yMziicwPe22gJkAuJKrXR0FGPcqRR8QNOlecY1srnB-rFW2ev_-gaO1C2Cda6A45MunT5pmIv6_KaRsxtTj0e4ZZOPWbtk9zPXhZqBGTUk"/>
+</div>
+<div class="flex-shrink-0 w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center p-3 text-primary font-bold">
+          +12
+        </div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container-lowest dark:bg-surface-container-low max-w-[480px] left-1/2 -translate-x-1/2 rounded-t-xl shadow-lg border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-md text-label-md mt-1">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md mt-1">Fees</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary-fixed text-on-secondary-container dark:text-on-secondary-fixed rounded-xl px-3 py-1.5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-label-md mt-1">Academics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="font-label-md text-label-md mt-1">More</span>
+</a>
+</nav>
+</body></html>

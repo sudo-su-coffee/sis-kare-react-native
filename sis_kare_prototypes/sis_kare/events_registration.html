@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Events &amp; Registration | SIS KARE Prototype</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#89ceff",
+                    "primary": "#031632",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#081b38",
+                    "surface-container": "#e5eeff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "on-tertiary-container": "#909395",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "on-secondary-fixed": "#001e2f",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "primary-fixed-dim": "#b6c7eb",
+                    "primary-fixed": "#d7e2ff",
+                    "secondary": "#006591",
+                    "outline-variant": "#c5c6ce",
+                    "secondary-container": "#39b8fd",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#44474d",
+                    "on-secondary-container": "#004666",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#b6c7eb",
+                    "surface-container-low": "#eff4ff",
+                    "secondary-fixed": "#c9e6ff",
+                    "primary-container": "#1a2b48",
+                    "tertiary-fixed": "#e0e3e5",
+                    "surface-variant": "#d3e4fe",
+                    "surface-tint": "#4e5f7e",
+                    "on-primary-container": "#8293b5",
+                    "on-tertiary-fixed": "#191c1e",
+                    "inverse-surface": "#213145",
+                    "surface-container-highest": "#d3e4fe",
+                    "error": "#ba1a1a",
+                    "outline": "#75777e",
+                    "tertiary-container": "#282c2e",
+                    "surface-dim": "#cbdbf5",
+                    "tertiary": "#141719",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "on-primary-fixed-variant": "#374765",
+                    "on-surface": "#0b1c30",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f8f9ff",
+                    "on-secondary-fixed-variant": "#004c6e",
+                    "on-background": "#0b1c30",
+                    "surface-container-high": "#dce9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-margin": "1rem",
+                    "inline-gap": "0.75rem",
+                    "stack-gap": "1rem",
+                    "section-padding": "1.5rem",
+                    "card-padding": "1.25rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "headline-sm": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "label-bold": ["Manrope"],
+                    "display-lg-mobile": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Manrope"],
+                    "body-sm": ["Manrope"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #f8f9ff;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .date-badge {
+            background: linear-gradient(135deg, #031632 0%, #1a2b48 100%);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .quick-reg-sheet {
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .quick-reg-sheet.active {
+            transform: translateY(0);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen pb-24">
+<!-- Top App Bar (Shared Component) -->
+<header class="flex justify-between items-center px-container-margin py-3 w-full fixed top-0 z-50 bg-primary dark:bg-primary shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary tracking-tight">KARE-SIS</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-primary p-2 hover:bg-primary-container/20 rounded-full cursor-pointer transition-opacity active:opacity-80">search</span>
+<span class="material-symbols-outlined text-on-primary p-2 hover:bg-primary-container/20 rounded-full cursor-pointer transition-opacity active:opacity-80">person</span>
+</div>
+</header>
+<main class="mt-20 px-container-margin">
+<!-- Header & Search -->
+<section class="mb-6">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-4">University Events</h2>
+<div class="relative group">
+<input class="w-full h-12 pl-12 pr-4 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-secondary focus:border-transparent transition-all outline-none text-body-md" placeholder="Search events, workshops..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-secondary">search</span>
+</div>
+</section>
+<!-- Category Filters -->
+<section class="mb-8 -mx-container-margin px-container-margin overflow-x-auto hide-scrollbar flex gap-3">
+<button class="flex-shrink-0 px-5 py-2.5 rounded-full bg-primary text-on-primary text-label-bold flex items-center gap-2">
+                All Events
+            </button>
+<button class="flex-shrink-0 px-5 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-bold flex items-center gap-2 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">terminal</span> Workshops
+            </button>
+<button class="flex-shrink-0 px-5 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-bold flex items-center gap-2 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">sports_basketball</span> Sports
+            </button>
+<button class="flex-shrink-0 px-5 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-bold flex items-center gap-2 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">palette</span> Cultural
+            </button>
+<button class="flex-shrink-0 px-5 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-bold flex items-center gap-2 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">precision_manufacturing</span> Technical
+            </button>
+</section>
+<!-- Bento Grid Events -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Featured Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm group">
+<div class="relative h-48 w-full bg-slate-200">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A cinematic, high-angle shot of a university hackathon event in a modern glass-walled lab. Students are working intensely on laptops with colorful code on screens. The lighting is cool-toned with navy and cyan accents, reflecting a high-tech academic environment. The overall mood is focused and prestigious." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC8ztM8-meV_xXSlIorziBtaP-2qWIANh5Tt3X_lFj8_NeNl24QL7xlJiDxliXYg0BHTSAfjFURb5Ywc8RZEfN0-Yd0fgzXIxWy2eHxiJYKzJVf7iTxAteF-MlcMhSe29osbmfOELQGVbBXtKEMYiRPC-1rtUXZ3vWsegCwVzZQvsol_myERyhG96kLTmTLq_5bQID8M_td0GpeS5njLMpEECHS7ZGw1oXpWTXR-_WBAAe1A8Z3LqUMCIC6Ig2elb9Q5oPuz_0_hpQ')"></div>
+<div class="absolute top-4 left-4 date-badge text-on-primary px-3 py-1 rounded-lg flex flex-col items-center">
+<span class="text-label-bold leading-none">OCT</span>
+<span class="text-headline-sm font-bold">24</span>
+</div>
+<div class="absolute top-4 right-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-bold shadow-md">
+                        Featured
+                    </div>
+</div>
+<div class="p-card-padding">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Global Tech Symposium 2024</h3>
+<div class="flex items-center gap-4 text-on-surface-variant mb-4">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="text-body-sm">Main Auditorium</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-body-sm">09:00 AM</span>
+</div>
+</div>
+<button class="w-full h-12 bg-primary text-on-primary rounded-lg font-headline-sm flex items-center justify-center gap-2 active:scale-95 transition-transform" onclick="openRegistration('Global Tech Symposium 2024')">
+                        Register Now
+                    </button>
+</div>
+</div>
+<!-- Standard Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="relative h-40 w-full">
+<div class="w-full h-full bg-cover bg-center" data-alt="A vibrant outdoor university sports field during a soccer tournament. The bright daylight creates crisp shadows on the green turf. Students in professional-looking athletic wear are in motion. The aesthetic is clean and corporate, emphasizing academic excellence and physical fitness. Navy blue university banners are visible in the background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACHbBhBZjq28Z4rMilfDssgOxa3RnfxvzF6837YW8KxduFQXetDUNVkP2rqJ0KQoXXYiRVn1glHt7l54-jH-J18PiqlRMbRfZ_fQ0eVFPTW22aVw0IHbvFztwSkZAFsB9Xw2-LyDObb0Gg_nyZvaK97t3cEPizMRYYF1DtaaMkxvlG3xMzLCyd7GEQlelrDAYlq1FqkwLwajS48XyKhBjn8u3la2Awkrbd6QqgFbnc4dr73-Z4jeDbsOTya1h6Ann1T1JekL72b38')"></div>
+<div class="absolute top-3 left-3 date-badge text-on-primary px-2.5 py-1 rounded-lg flex flex-col items-center">
+<span class="text-[10px] font-bold leading-none">OCT</span>
+<span class="text-headline-sm font-bold leading-none">26</span>
+</div>
+</div>
+<div class="p-4 flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-primary">Inter-University Sports Meet</h3>
+<span class="bg-surface-container text-secondary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Sports</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-body-sm">Sports Complex - Field A</span>
+</div>
+<button class="w-full h-10 border border-primary text-primary rounded-lg font-label-bold hover:bg-primary/5 active:scale-95 transition-all" onclick="openRegistration('Inter-University Sports Meet')">
+                        Register Now
+                    </button>
+</div>
+</div>
+<!-- Standard Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="relative h-40 w-full">
+<div class="w-full h-full bg-cover bg-center" data-alt="A minimalist workshop setting in a bright, modern studio. A group of students are clustered around a large table with design sketches and tablet devices. High-key lighting fills the space, creating a clean light-mode feel. The palette is dominated by whites and soft grays with navy blue stationery accents. The mood is creative yet structured." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBIKp8sfBkFAozg-namE9rXjAUFG8sg_oGSiykXcPW3LH5gS31U8X_cfVisZcpeyFVTGtR_egQbRsrn0I57lcM8Bac5JZ3vo-fPfnv2gTfQbNuh_NVcgu3uXeKesruJ1_dYDk2kddcnVJ-CxlINifVC7s1WWJMt6_8WPsdNPj0oxI2DNPJUKUobZPNUUHOHJHrBF4rqlpD3vXIRGR1Dl9vrLb7XqTKo-UNRMNW0rAbalyPSjH4zQl6dvN7M8UnN3b4ROg2Fs3ogME')"></div>
+<div class="absolute top-3 left-3 date-badge text-on-primary px-2.5 py-1 rounded-lg flex flex-col items-center">
+<span class="text-[10px] font-bold leading-none">NOV</span>
+<span class="text-headline-sm font-bold leading-none">02</span>
+</div>
+</div>
+<div class="p-4 flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-primary">UI/UX Design Masterclass</h3>
+<span class="bg-surface-container text-secondary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Workshops</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-body-sm">Design Lab 402</span>
+</div>
+<button class="w-full h-10 border border-primary text-primary rounded-lg font-label-bold hover:bg-primary/5 active:scale-95 transition-all" onclick="openRegistration('UI/UX Design Masterclass')">
+                        Register Now
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Bar (Shared Component) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface-container border-t border-outline-variant rounded-t-xl shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-md text-label-md">Fees</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary font-bold active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-label-md">Academics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-md text-label-md">More</span>
+</a>
+</nav>
+<!-- Quick Registration Bottom Sheet -->
+<div class="fixed inset-0 bg-black/40 z-[60] hidden transition-opacity duration-300 opacity-0" id="backdrop" onclick="closeRegistration()"></div>
+<div class="quick-reg-sheet fixed bottom-0 left-0 right-0 bg-surface-container-lowest z-[70] rounded-t-3xl p-6 shadow-2xl max-w-lg mx-auto" id="regSheet">
+<div class="w-12 h-1.5 bg-outline-variant rounded-full mx-auto mb-6"></div>
+<div class="flex items-start justify-between mb-6">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary" id="eventTitleDisplay">Quick Registration</h4>
+<p class="text-body-sm text-on-surface-variant mt-1">Confirm your participation for this event.</p>
+</div>
+<button class="p-2 hover:bg-surface-variant rounded-full" onclick="closeRegistration()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="space-y-4 mb-8">
+<div class="p-4 bg-surface-container-low rounded-xl border border-outline-variant">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-primary">J. Sathvik</p>
+<p class="text-body-sm text-on-surface-variant">ID: 934981493123</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-3 border-t border-outline-variant/30">
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase">Department</p>
+<p class="text-body-sm font-semibold text-primary">B.Tech CSE</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase">Semester</p>
+<p class="text-body-sm font-semibold text-primary">VII Sem</p>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-3 p-1">
+<input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="terms" type="checkbox"/>
+<label class="text-body-sm text-on-surface-variant" for="terms">I agree to the university event participation guidelines and code of conduct.</label>
+</div>
+</div>
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-headline-sm flex items-center justify-center gap-2 active:scale-95 transition-all shadow-lg shadow-primary/20" id="confirmBtn" onclick="confirmReg()">
+            Confirm &amp; Register
+        </button>
+</div>
+<!-- Success Toast -->
+<div class="fixed top-6 left-1/2 -translate-x-1/2 z-[100] bg-on-surface text-surface py-3 px-6 rounded-full shadow-xl flex items-center gap-2 translate-y-[-150%] transition-transform duration-500" id="successToast">
+<span class="material-symbols-outlined text-green-400">check_circle</span>
+<span class="text-label-bold">Successfully Registered!</span>
+</div>
+<script>
+        const sheet = document.getElementById('regSheet');
+        const backdrop = document.getElementById('backdrop');
+        const eventTitleDisplay = document.getElementById('eventTitleDisplay');
+        const successToast = document.getElementById('successToast');
+
+        function openRegistration(title) {
+            eventTitleDisplay.textContent = title;
+            backdrop.classList.remove('hidden');
+            setTimeout(() => {
+                backdrop.classList.add('opacity-100');
+                sheet.classList.add('active');
+            }, 10);
+        }
+
+        function closeRegistration() {
+            sheet.classList.remove('active');
+            backdrop.classList.remove('opacity-100');
+            setTimeout(() => {
+                backdrop.classList.add('hidden');
+            }, 300);
+        }
+
+        function confirmReg() {
+            const btn = document.getElementById('confirmBtn');
+            const checkbox = document.getElementById('terms');
+            
+            if(!checkbox.checked) {
+                checkbox.parentElement.classList.add('animate-shake');
+                setTimeout(() => checkbox.parentElement.classList.remove('animate-shake'), 400);
+                return;
+            }
+
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Processing...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                closeRegistration();
+                showToast();
+                btn.innerHTML = 'Confirm & Register';
+                btn.disabled = false;
+                checkbox.checked = false;
+            }, 1500);
+        }
+
+        function showToast() {
+            successToast.classList.remove('translate-y-[-150%]');
+            successToast.classList.add('translate-y-0');
+            setTimeout(() => {
+                successToast.classList.remove('translate-y-0');
+                successToast.classList.add('translate-y-[-150%]');
+            }, 3000);
+        }
+    </script>
+<style>
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-4px); }
+            75% { transform: translateX(4px); }
+        }
+        .animate-shake {
+            animation: shake 0.2s cubic-bezier(.36,.07,.19,.97) both;
+            color: #ba1a1a;
+        }
+    </style>
+</body></html>

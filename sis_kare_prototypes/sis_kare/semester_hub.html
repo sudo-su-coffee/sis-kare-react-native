@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Semester Hub | SIS KARE Prototype</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#b6c7eb",
+                    "secondary-container": "#39b8fd",
+                    "on-error-container": "#93000a",
+                    "outline": "#75777e",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "surface-container-highest": "#d3e4fe",
+                    "surface-bright": "#f8f9ff",
+                    "primary-fixed-dim": "#b6c7eb",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#081b38",
+                    "on-primary-fixed-variant": "#374765",
+                    "inverse-on-surface": "#eaf1ff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "outline-variant": "#c5c6ce",
+                    "secondary": "#006591",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#d7e2ff",
+                    "on-surface": "#0b1c30",
+                    "inverse-surface": "#213145",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#44474d",
+                    "tertiary": "#141719",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-secondary-container": "#004666",
+                    "secondary-fixed-dim": "#89ceff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#001e2f",
+                    "secondary-fixed": "#c9e6ff",
+                    "surface-container-low": "#eff4ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#8293b5",
+                    "on-background": "#0b1c30",
+                    "primary-container": "#1a2b48",
+                    "surface-container-high": "#dce9ff",
+                    "on-primary": "#ffffff",
+                    "primary": "#031632",
+                    "surface-container": "#e5eeff",
+                    "on-tertiary-fixed": "#191c1e",
+                    "surface-dim": "#cbdbf5",
+                    "background": "#f8f9ff",
+                    "on-secondary-fixed-variant": "#004c6e",
+                    "surface-tint": "#4e5f7e",
+                    "surface-variant": "#d3e4fe",
+                    "on-tertiary-container": "#909395",
+                    "tertiary-container": "#282c2e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-padding": "1.5rem",
+                    "inline-gap": "0.75rem",
+                    "stack-gap": "1rem",
+                    "container-margin": "1rem",
+                    "card-padding": "1.25rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Manrope"],
+                    "display-lg": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "label-bold": ["Manrope"],
+                    "headline-sm": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "display-lg-mobile": ["Manrope"],
+                    "body-sm": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .progress-ring { transition: stroke-dashoffset 0.35s; transform: rotate(-90deg); transform-origin: 50% 50%; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); border: 1px solid #e2e8f0; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-container-margin py-3 w-full fixed top-0 z-50 bg-primary shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">KARE-SIS</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary">person</span>
+</div>
+</header>
+<main class="pt-20 px-container-margin max-w-[480px] mx-auto space-y-6">
+<!-- Welcome Header -->
+<header class="flex flex-col gap-1">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary">Semester Hub</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">VII Semester • B.Tech CSE</p>
+</header>
+<!-- Current Semester Progress (Bento Style) -->
+<section class="grid grid-cols-2 gap-3">
+<!-- GPA Card -->
+<div class="col-span-1 glass-card rounded-xl p-card-padding flex flex-col items-center justify-center text-center shadow-sm">
+<div class="relative w-16 h-16 flex items-center justify-center mb-2">
+<svg class="w-full h-full">
+<circle class="text-surface-container" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-secondary progress-ring" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175" stroke-dashoffset="35" stroke-width="4"></circle>
+</svg>
+<span class="absolute font-headline-sm text-headline-sm text-primary">8.4</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase">Current GPA</span>
+</div>
+<!-- Attendance Card -->
+<div class="col-span-1 glass-card rounded-xl p-card-padding flex flex-col items-center justify-center text-center shadow-sm">
+<div class="relative w-16 h-16 flex items-center justify-center mb-2">
+<svg class="w-full h-full">
+<circle class="text-surface-container" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-secondary progress-ring" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175" stroke-dashoffset="18" stroke-width="4"></circle>
+</svg>
+<span class="absolute font-headline-sm text-headline-sm text-primary">92%</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase">Attendance</span>
+</div>
+<!-- Credits Card -->
+<div class="col-span-2 glass-card rounded-xl p-card-padding flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-primary">22 / 24</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase">Credits Completed</span>
+</div>
+<div class="h-2 w-32 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[91%]"></div>
+</div>
+</div>
+</section>
+<!-- Quick Links (Interactive Icons) -->
+<section class="space-y-3">
+<h3 class="font-headline-sm text-headline-sm text-on-surface-variant px-1">Quick Links</h3>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex flex-col items-center gap-2 p-3 bg-white border border-outline-variant rounded-xl hover:bg-surface-container transition-colors active:scale-95 duration-150">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined">rule</span>
+</div>
+<span class="font-label-md text-label-md text-center">Revaluation</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 bg-white border border-outline-variant rounded-xl hover:bg-surface-container transition-colors active:scale-95 duration-150">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined">history_edu</span>
+</div>
+<span class="font-label-md text-label-md text-center">Arrears</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 bg-white border border-outline-variant rounded-xl hover:bg-surface-container transition-colors active:scale-95 duration-150">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">confirmation_number</span>
+</div>
+<span class="font-label-md text-label-md text-center">Hall Ticket</span>
+</button>
+</div>
+</section>
+<!-- Semester Roadmap (Vertical Timeline) -->
+<section class="space-y-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface-variant px-1">Semester Roadmap</h3>
+<div class="relative space-y-6 pl-4 border-l-2 border-outline-variant ml-2">
+<!-- Timeline Item: Completed -->
+<div class="relative">
+<div class="absolute -left-[22px] top-1 w-4 h-4 rounded-full bg-secondary border-4 border-background"></div>
+<div class="glass-card rounded-xl p-4 shadow-sm">
+<div class="flex justify-between items-start mb-1">
+<span class="font-headline-sm text-headline-sm text-primary">Unit Test - II</span>
+<span class="px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider">Completed</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Completed on Oct 15, 2023. Avg: 88%</p>
+</div>
+</div>
+<!-- Timeline Item: Current -->
+<div class="relative">
+<div class="absolute -left-[22px] top-1 w-4 h-4 rounded-full bg-secondary border-4 border-background animate-pulse"></div>
+<div class="bg-secondary-container/10 border-2 border-secondary rounded-xl p-4 shadow-sm">
+<div class="flex justify-between items-start mb-1">
+<span class="font-headline-sm text-headline-sm text-primary">Lab Externals</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary text-white text-[10px] font-bold uppercase tracking-wider">Current</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Starts tomorrow, Oct 28 at 09:30 AM</p>
+<div class="mt-3 flex gap-2">
+<button class="flex-1 py-2 rounded-lg bg-secondary text-white font-label-bold text-label-bold">View Schedule</button>
+</div>
+</div>
+</div>
+<!-- Timeline Item: Upcoming -->
+<div class="relative opacity-60">
+<div class="absolute -left-[22px] top-1 w-4 h-4 rounded-full bg-outline border-4 border-background"></div>
+<div class="glass-card rounded-xl p-4 shadow-sm">
+<div class="flex justify-between items-start mb-1">
+<span class="font-headline-sm text-headline-sm text-primary">End Semester Theory</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-wider">Upcoming</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Expected from Nov 12, 2023</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Announcement Card -->
+<section class="rounded-2xl p-6 relative overflow-hidden text-on-primary" style="background-image: linear-gradient(135deg, #031632 0%, #1a2b48 100%)">
+
+<div class="relative z-10 flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container">campaign</span>
+<span class="font-label-bold text-label-bold uppercase tracking-widest text-secondary-container">Office Update</span>
+</div>
+<h4 class="font-headline-md text-headline-md leading-tight">Semester break starts from Dec 15th. Hostel vacancy notices issued.</h4>
+<a class="font-label-bold text-label-bold text-secondary-container flex items-center gap-1 group" href="#">
+                    Read Guidelines <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface border-t border-outline-variant rounded-t-xl shadow-lg">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 transition-colors p-2 rounded-lg">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 transition-colors p-2 rounded-lg">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 transition-colors p-2 rounded-lg">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-md text-label-md">Fees</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary font-bold hover:bg-surface-container-highest/50 transition-colors p-2 rounded-lg scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-label-md">Academics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 transition-colors p-2 rounded-lg">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-md text-label-md">More</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button, .glass-card').forEach(el => {
+            el.addEventListener('touchstart', () => {
+                el.classList.add('opacity-80');
+            });
+            el.addEventListener('touchend', () => {
+                el.classList.remove('opacity-80');
+            });
+        });
+
+        // Initialize progress rings on load
+        window.addEventListener('load', () => {
+            const rings = document.querySelectorAll('.progress-ring');
+            rings.forEach(ring => {
+                // Trigger animation reflow
+                const val = ring.getAttribute('stroke-dashoffset');
+                ring.style.strokeDashoffset = '175';
+                setTimeout(() => {
+                    ring.style.strokeDashoffset = val;
+                }, 100);
+            });
+        });
+    </script>
+</body></html>

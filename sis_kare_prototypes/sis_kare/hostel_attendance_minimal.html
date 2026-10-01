@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#0b1c30",
+                        "outline-variant": "#c5c6ce",
+                        "primary": "#031632",
+                        "on-secondary-fixed-variant": "#004c6e",
+                        "tertiary-fixed": "#e0e3e5",
+                        "primary-container": "#1a2b48",
+                        "on-primary-fixed-variant": "#374765",
+                        "secondary": "#006591",
+                        "surface-variant": "#d3e4fe",
+                        "on-primary-fixed": "#081b38",
+                        "background": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "tertiary-container": "#282c2e",
+                        "on-primary-container": "#8293b5",
+                        "secondary-fixed": "#c9e6ff",
+                        "on-tertiary-fixed": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#d3e4fe",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-container": "#e5eeff",
+                        "secondary-container": "#39b8fd",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#001e2f",
+                        "surface-tint": "#4e5f7e",
+                        "tertiary": "#141719",
+                        "primary-fixed": "#d7e2ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface-variant": "#44474d",
+                        "on-secondary-container": "#004666",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-tertiary-container": "#909395",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-surface": "#213145",
+                        "inverse-primary": "#b6c7eb",
+                        "secondary-fixed-dim": "#89ceff",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f8f9ff",
+                        "outline": "#75777e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "surface": "#f8f9ff",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "1rem",
+                        "card-padding": "1.25rem",
+                        "section-padding": "1.5rem",
+                        "inline-gap": "0.75rem",
+                        "container-margin": "1rem"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "body-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <title>Hostel Attendance | SIS KARE Prototype</title>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md flex flex-col items-center">
+<!-- TopAppBar -->
+<header class="bg-primary shadow-md docked full-width top-0 flex justify-between items-center w-full px-container-margin h-16 fixed z-50">
+<div class="flex items-center gap-3">
+<img alt="Student Profile Photo" class="w-10 h-10 rounded-full border-2 border-on-primary-container" data-alt="A professional close-up portrait of a young male student with a friendly expression, set against a blurred academic background. The lighting is soft and natural, reflecting a bright and clean light-mode aesthetic. The color palette is composed of soft whites and professional navy tones, emphasizing clarity and trust in an educational context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzFHMT5ENZyt96nDnsyWlWOFl0AOapgVU5PTnkbC2AMaeiuOGHK5H8eDjD6dn7MvDVU6WI8KcDFVcBiXQiz2qqEz631tOovnomqranLym6E_MaPcRNEQU_jptga_120WyI7lf7OUjASjT0-UTrBAomD9MxDgXoWCVdV4nPO9cjm1VGuWPOs2l6X-9ocJn_wbHlFe-gUWgwZI-SZ01Za9uToykY_XD_2FMVICqTF3LCb4mkst0adRziK8PxJ1BeC1z6aomB1ePxxEI"/>
+<h1 class="font-headline-md text-headline-md-mobile font-bold tracking-tight text-on-primary">Hostel Attendance</h1>
+</div>
+<button class="text-on-primary transition-opacity duration-200 active:scale-95 hover:opacity-90">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[480px] pt-20 pb-24 px-container-margin flex flex-col gap-stack-gap">
+<!-- Summary Card: Bento Layout -->
+<section class="grid grid-cols-2 gap-inline-gap">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-sm flex flex-col justify-between aspect-square">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant">MONTHLY AVG</p>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary mt-2">94%</h2>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-2 flex-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[94%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-primary text-on-primary rounded-xl p-card-padding shadow-sm flex flex-col justify-between aspect-square">
+<div>
+<span class="material-symbols-outlined text-secondary-fixed">verified</span>
+<p class="font-label-bold text-label-bold text-on-primary-container mt-2">STATUS</p>
+<h2 class="font-headline-md text-headline-md-mobile mt-1">Regular</h2>
+</div>
+<p class="font-body-sm text-body-sm opacity-80">Good standing for October.</p>
+</div>
+</section>
+<!-- Filter & Header -->
+<div class="flex items-center justify-between mt-4">
+<h3 class="font-headline-sm text-headline-sm text-primary">Attendance Log</h3>
+<button class="flex items-center gap-1 bg-surface-container-low px-3 py-1.5 rounded-lg border border-outline-variant hover:bg-surface-container-high transition-colors">
+<span class="font-label-bold text-label-bold text-on-surface">October 2024</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+<!-- Attendance Log List -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<!-- Entry 1 -->
+<div class="flex items-center justify-between p-card-padding border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-center justify-center bg-surface-container-low w-12 h-12 rounded-lg">
+<p class="font-label-bold text-label-bold text-on-surface-variant">24</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">OCT</p>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-background">Check In</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">08:42 PM • Main Gate</p>
+</div>
+</div>
+<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-label-bold text-label-bold">In</span>
+</div>
+<!-- Entry 2 -->
+<div class="flex items-center justify-between p-card-padding border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-center justify-center bg-surface-container-low w-12 h-12 rounded-lg">
+<p class="font-label-bold text-label-bold text-on-surface-variant">24</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">OCT</p>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-background">Check Out</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">05:15 PM • Side Gate</p>
+</div>
+</div>
+<span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-label-bold text-label-bold">Out</span>
+</div>
+<!-- Entry 3 -->
+<div class="flex items-center justify-between p-card-padding border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-center justify-center bg-surface-container-low w-12 h-12 rounded-lg">
+<p class="font-label-bold text-label-bold text-on-surface-variant">23</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">OCT</p>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-background">Check In</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">09:10 PM • Main Gate</p>
+</div>
+</div>
+<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-label-bold text-label-bold">In</span>
+</div>
+<!-- Entry 4 -->
+<div class="flex items-center justify-between p-card-padding border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-center justify-center bg-surface-container-low w-12 h-12 rounded-lg">
+<p class="font-label-bold text-label-bold text-on-surface-variant">23</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">OCT</p>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-background">Check Out</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">04:30 PM • Main Gate</p>
+</div>
+</div>
+<span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-label-bold text-label-bold">Out</span>
+</div>
+<!-- Entry 5 -->
+<div class="flex items-center justify-between p-card-padding">
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-center justify-center bg-surface-container-low w-12 h-12 rounded-lg">
+<p class="font-label-bold text-label-bold text-on-surface-variant">22</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">OCT</p>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-background">Check In</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">08:55 PM • Main Gate</p>
+</div>
+</div>
+<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-label-bold text-label-bold">In</span>
+</div>
+</div>
+<button class="w-full py-4 text-primary font-label-bold text-label-bold hover:bg-surface-container-low transition-colors rounded-xl border border-dashed border-outline-variant">
+            View full log history
+        </button>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface-container-lowest border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-all duration-150 ease-in-out active:scale-90 hover:bg-surface-container-high px-3 py-1" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1 transition-all duration-150 ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-all duration-150 ease-in-out active:scale-90 hover:bg-surface-container-high px-3 py-1" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Fees</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-all duration-150 ease-in-out active:scale-90 hover:bg-surface-container-high px-3 py-1" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Academics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-all duration-150 ease-in-out active:scale-90 hover:bg-surface-container-high px-3 py-1" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-label-md text-label-md">More</span>
+</a>
+</nav>
+</body></html>

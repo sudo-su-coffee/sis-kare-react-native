@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#75777e",
+                        "tertiary-container": "#282c2e",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface": "#f8f9ff",
+                        "tertiary": "#141719",
+                        "surface-dim": "#cbdbf5",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#004c6e",
+                        "background": "#f8f9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container": "#e5eeff",
+                        "on-secondary-fixed": "#001e2f",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-surface": "#0b1c30",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-container": "#8293b5",
+                        "inverse-primary": "#b6c7eb",
+                        "on-background": "#0b1c30",
+                        "on-secondary": "#ffffff",
+                        "primary": "#031632",
+                        "secondary-fixed": "#c9e6ff",
+                        "on-surface-variant": "#44474d",
+                        "tertiary-fixed": "#e0e3e5",
+                        "secondary-container": "#39b8fd",
+                        "primary-fixed": "#d7e2ff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#191c1e",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "on-tertiary-container": "#909395",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#213145",
+                        "primary-container": "#1a2b48",
+                        "outline-variant": "#c5c6ce",
+                        "secondary-fixed-dim": "#89ceff",
+                        "on-secondary-container": "#004666",
+                        "surface-variant": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-fixed": "#081b38",
+                        "on-primary-fixed-variant": "#374765",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-padding": "1.25rem",
+                        "inline-gap": "0.75rem",
+                        "stack-gap": "1rem",
+                        "container-margin": "1rem",
+                        "section-padding": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .id-pattern {
+            background-image: radial-gradient(circle at 2px 2px, #d3e4fe 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <title>Digital ID Card | SIS KARE Prototype</title>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-primary fixed top-0 w-full z-50 shadow-md flex justify-between items-center h-16 px-container-margin w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-primary" data-icon="menu">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">KARE-SIS</h1>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-on-primary overflow-hidden">
+<img alt="Student Profile Avatar" data-alt="A professional headshot of a young male student with dark hair and a confident expression, wearing a crisp white shirt. The background is a clean, neutral grey. The image is high-definition with soft, professional studio lighting that highlights clear skin and bright eyes, maintaining a formal academic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBduCWLHPguFeCLqoHR7W61wIcFft3mUvcIQZw2hoc6_FechgkSO8_lpX_-hogPE2K-4Co8iI8PO05ygA95AGpRNN1EMng3rw25bCDfghEVWnUFGc3WSo0oxfKnqWDKtXfa8IGI8nb3Ajj2K-QRTogeKZzcqpEUVccKPYcJ23D98QTHJSe-qnKwP2lNByUiLh4p5eCKUhpkdjcdJBw3ccH3NY7uTrnvR22RfoKVnC84e3KenMcU1SrtU02XtJi14APA4hquq4JV1Qg"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-[480px] mx-auto mt-24 px-container-margin">
+<!-- ID Card Container -->
+<div class="relative overflow-hidden bg-surface-container-lowest border border-outline-variant rounded-xl shadow-lg">
+<!-- Security Watermark Background -->
+<div class="absolute inset-0 id-pattern opacity-30 pointer-events-none"></div>
+<!-- Card Header -->
+<div class="bg-primary p-card-padding flex justify-between items-center relative z-10">
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-on-primary/80">UNIVERSITY STUDENT ID</span>
+<span class="font-headline-sm text-headline-sm text-on-primary">Kalasalingam Academy</span>
+</div>
+<div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="verified">verified</span>
+</div>
+</div>
+<!-- Profile and Info Section -->
+<div class="p-card-padding relative z-10">
+<div class="flex flex-col items-center">
+<!-- Large Profile Photo -->
+<div class="w-40 h-40 rounded-xl border-4 border-surface-container-highest shadow-md overflow-hidden mb-4">
+<img alt="Student Portrait" data-alt="A focused portrait of a college-aged male student named Sathvik, showing a clear frontal view of his face. He is wearing a formal dark navy blazer over a light blue collared shirt. The lighting is bright and even, similar to an official identification photo, against a soft-focus campus library background that emphasizes academic rigor and professional modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoaFjKwfx26fxhmnr7SNUFYOX1PsG3sHp71SH_YLBE3D6VgMesnO_e-Ypa56JTjWID_hmNQ_9pknu2vKge5g6lmhQaknaK5qVxGi8KPd14UBmMM48ibhjwGt--p6Hlf8PKtp-aWHUTjqkFxOjRBAFxd8fkbbISZR3tjYCzre0HVD2ssmKvhvWwRYxwaDDw-1aflGTVbGtLWIERQUb3yVy5UV5iHxq1prNczyZlhDQHuqlsyqnqzvfI8iN1ZiUe05poX9TpIAp8l90"/>
+</div>
+<!-- Primary Student Details -->
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary text-center">J. Sathvik</h2>
+<span class="font-headline-sm text-headline-sm text-secondary mb-6">B.Tech CSE</span>
+<!-- Data Grid -->
+<div class="w-full grid grid-cols-2 gap-4 border-t border-b border-outline-variant py-4 mb-6">
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-outline uppercase tracking-wider">Student ID</span>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">934981493123</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-outline uppercase tracking-wider">Validity</span>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">2023 - 2027</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-outline uppercase tracking-wider">Blood Group</span>
+<span class="font-body-lg text-body-lg text-error font-semibold">O+ POSITIVE</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-outline uppercase tracking-wider">Campus</span>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">Main Block</span>
+</div>
+</div>
+<!-- QR Code Section -->
+<div class="bg-white p-4 rounded-xl border border-outline-variant shadow-sm mb-6">
+<div class="relative w-48 h-48">
+<img alt="Entry QR Code" data-alt="A high-contrast, black and white scannable QR code centered on a clean white background. The QR code is dense and detailed, representing encrypted student data. It is framed by a subtle navy blue border, maintaining the academic and secure aesthetic of a modern university identification system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASQB6XBw47Szk35pwsRl4xiuPeENf5FIgvrbAfKOvRkGngZ5Ggo0HbrZQs0oe8LZJeAqVEGYmfsp3R1o-Tcx6cA_0uBh4tNeGr1x_S652FBllqyyE2xExb6LokVVejdP9L3G85XOFuizjYowuvB9Bj5raUGGbPdkgcv54EW4ZOk_82yb718NYIQ-woNYjknt4laRvKwBKsg7APqfHl6CLTfSJcKP9V491DW3ac9m9xEr34JY0y5KR9U1ImOWsOaDX2syr2eKzeoDM"/>
+</div>
+<p class="font-label-md text-label-md text-center text-outline mt-3">SCAN FOR CAMPUS ENTRY</p>
+</div>
+<!-- Signature Section -->
+<div class="w-full flex justify-between items-end px-4">
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-outline mb-1">Digital Signature</span>
+<div class="h-10 italic font-serif text-2xl text-primary-container border-b border-outline w-32">
+                                Sathvik J.
+                            </div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-bold text-label-bold text-outline">Status</span>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-bold">ACTIVE</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Accent -->
+<div class="h-2 bg-primary"></div>
+</div>
+<!-- Secondary Actions -->
+<div class="mt-stack-gap flex flex-col gap-inline-gap">
+<button class="w-full h-12 bg-primary text-on-primary rounded-lg font-headline-sm flex items-center justify-center gap-2 shadow-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+                Share Digital ID
+            </button>
+<button class="w-full h-12 bg-surface-container border border-outline-variant text-primary rounded-lg font-headline-sm flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                Download Offline Copy
+            </button>
+</div>
+<!-- Security Note -->
+<div class="mt-6 p-4 bg-surface-container-low rounded-lg border-l-4 border-secondary flex gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="info">info</span>
+<p class="font-body-sm text-on-surface-variant">
+                This digital ID is a valid substitute for the physical card within campus premises. Security personnel may ask for biometric verification if required.
+            </p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 bg-surface dark:bg-surface-container-low border-t border-outline-variant dark:border-outline shadow-lg flex justify-around items-center px-2 pb-safe z-50">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Fees</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label-md text-label-md">Academics</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+<span class="font-label-md text-label-md">More</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Attendance Details | SIS KARE Prototype</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9ff",
+                        "secondary-container": "#39b8fd",
+                        "inverse-primary": "#b6c7eb",
+                        "tertiary-fixed": "#e0e3e5",
+                        "on-tertiary-container": "#909395",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary": "#031632",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c5c6ce",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#eff4ff",
+                        "on-background": "#0b1c30",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-surface": "#0b1c30",
+                        "on-secondary-fixed-variant": "#004c6e",
+                        "tertiary": "#141719",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface": "#f8f9ff",
+                        "on-secondary-fixed": "#001e2f",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#c9e6ff",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "surface-container": "#e5eeff",
+                        "on-primary-fixed": "#081b38",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-surface": "#213145",
+                        "on-primary-fixed-variant": "#374765",
+                        "tertiary-container": "#282c2e",
+                        "secondary-fixed-dim": "#89ceff",
+                        "secondary": "#006591",
+                        "on-surface-variant": "#44474d",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#004666",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-tint": "#4e5f7e",
+                        "primary-fixed": "#d7e2ff",
+                        "surface-dim": "#cbdbf5",
+                        "on-primary-container": "#8293b5",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "primary-container": "#1a2b48",
+                        "outline": "#75777e",
+                        "surface-container-high": "#dce9ff",
+                        "surface-bright": "#f8f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "inline-gap": "0.75rem",
+                        "container-margin": "1rem",
+                        "card-padding": "1.25rem",
+                        "section-padding": "1.5rem",
+                        "stack-gap": "1rem"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "label-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-container-margin py-3 w-full fixed top-0 z-50 bg-primary dark:bg-primary shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-primary cursor-pointer">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">KARE-SIS</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary">person</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 px-container-margin max-w-[480px] mx-auto space-y-stack-gap">
+<!-- Overall Stats Hero -->
+<section class="bg-primary-container text-on-primary rounded-xl p-card-padding shadow-md">
+<div class="flex justify-between items-center mb-4">
+<div>
+<h2 class="font-headline-sm text-headline-sm-mobile opacity-80">Aggregate Attendance</h2>
+<p class="font-display-lg-mobile text-display-lg-mobile">84.5%</p>
+</div>
+<div class="relative w-16 h-16">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white/20" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-secondary-container" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175.9" stroke-dashoffset="27.2" stroke-width="6"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px] text-secondary-container">verified</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-white/10 pt-4">
+<div>
+<p class="font-label-bold text-label-bold opacity-70">Total Conducted</p>
+<p class="font-headline-sm text-headline-sm">450 Periods</p>
+</div>
+<div>
+<p class="font-label-bold text-label-bold opacity-70">Total Attended</p>
+<p class="font-headline-sm text-headline-sm">381 Periods</p>
+</div>
+</div>
+</section>
+<!-- Course Attendance List -->
+<div class="space-y-4">
+<h3 class="font-headline-sm text-headline-sm px-1">Course-wise Breakdown</h3>
+<!-- Course Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-card-padding">
+<div class="flex justify-between items-start mb-3">
+<div>
+<span class="font-label-bold text-label-bold text-secondary uppercase tracking-wider">CSE4021</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Cloud Computing &amp; Virtualization</h4>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-secondary">92%</span>
+<div class="w-16 h-1 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-secondary w-[92%]"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 py-3 border-y border-outline-variant/30">
+<div class="text-center border-r border-outline-variant/30">
+<p class="font-label-bold text-label-bold text-on-surface-variant">Conducted</p>
+<p class="font-body-lg text-body-lg text-on-surface">42</p>
+</div>
+<div class="text-center border-r border-outline-variant/30">
+<p class="font-label-bold text-label-bold text-on-surface-variant">Attended</p>
+<p class="font-body-lg text-body-lg text-on-surface">39</p>
+</div>
+<div class="text-center">
+<p class="font-label-bold text-label-bold text-on-surface-variant">On-Duty</p>
+<p class="font-body-lg text-body-lg text-secondary">2</p>
+</div>
+</div>
+<!-- Expansion Header -->
+<button class="w-full flex items-center justify-between pt-3 text-secondary font-label-bold text-label-bold">
+                        VIEW ATTENDANCE LOG
+                        <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<!-- Expansion Content (Simulated Open) -->
+<div class="bg-surface-container-low px-card-padding pb-card-padding space-y-2">
+<div class="flex justify-between items-center p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-green-700 text-[18px]">check</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold">24 Oct 2023</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Slot: A1+TA1</p>
+</div>
+</div>
+<span class="px-2 py-1 bg-green-50 text-green-700 text-[10px] font-bold rounded-full border border-green-200">PRESENT</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-700 text-[18px]">badge</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold">22 Oct 2023</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Slot: A2+TA2</p>
+</div>
+</div>
+<span class="px-2 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold rounded-full border border-blue-200 uppercase">Onduty</span>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-card-padding">
+<div class="flex justify-between items-start mb-3">
+<div>
+<span class="font-label-bold text-label-bold text-secondary uppercase tracking-wider">MAT2001</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Statistics for Engineers</h4>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-error">72%</span>
+<div class="w-16 h-1 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-error w-[72%]"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 py-3 border-y border-outline-variant/30">
+<div class="text-center border-r border-outline-variant/30">
+<p class="font-label-bold text-label-bold text-on-surface-variant">Conducted</p>
+<p class="font-body-lg text-body-lg text-on-surface">36</p>
+</div>
+<div class="text-center border-r border-outline-variant/30">
+<p class="font-label-bold text-label-bold text-on-surface-variant">Attended</p>
+<p class="font-body-lg text-body-lg text-on-surface">26</p>
+</div>
+<div class="text-center">
+<p class="font-label-bold text-label-bold text-on-surface-variant">Medical</p>
+<p class="font-body-lg text-body-lg text-error">4</p>
+</div>
+</div>
+<button class="w-full flex items-center justify-between pt-3 text-secondary font-label-bold text-label-bold">
+                        VIEW ATTENDANCE LOG
+                        <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-card-padding">
+<div class="flex justify-between items-start mb-3">
+<div>
+<span class="font-label-bold text-label-bold text-secondary uppercase tracking-wider">CSE3004</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Software Engineering</h4>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-secondary">88%</span>
+<div class="w-16 h-1 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-secondary w-[88%]"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 py-3 border-y border-outline-variant/30">
+<div class="text-center border-r border-outline-variant/30">
+<p class="font-label-bold text-label-bold text-on-surface-variant">Conducted</p>
+<p class="font-body-lg text-body-lg text-on-surface">40</p>
+</div>
+<div class="text-center border-r border-outline-variant/30">
+<p class="font-label-bold text-label-bold text-on-surface-variant">Attended</p>
+<p class="font-body-lg text-body-lg text-on-surface">35</p>
+</div>
+<div class="text-center">
+<p class="font-label-bold text-label-bold text-on-surface-variant">Extra Hrs</p>
+<p class="font-body-lg text-body-lg text-secondary">3</p>
+</div>
+</div>
+<button class="w-full flex items-center justify-between pt-3 text-secondary font-label-bold text-label-bold">
+                        VIEW ATTENDANCE LOG
+                        <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Attendance Legend Section -->
+<section class="bg-surface p-card-padding rounded-xl border border-outline-variant/50">
+<h4 class="font-label-bold text-label-bold text-on-surface-variant mb-3 uppercase tracking-tighter">Status Legend</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-green-50 text-green-700 text-[10px] font-bold rounded border border-green-200">PRESENT</span>
+<span class="px-2 py-1 bg-error-container text-on-error-container text-[10px] font-bold rounded border border-error/20">ABSENT</span>
+<span class="px-2 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold rounded border border-blue-200">ONDUTY</span>
+<span class="px-2 py-1 bg-amber-50 text-amber-700 text-[10px] font-bold rounded border border-amber-200">MEDICAL</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant text-[10px] font-bold rounded border border-outline-variant">RESTRICTED</span>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface-container rounded-t-xl shadow-lg border-t border-outline-variant dark:border-outline">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-md text-label-md">Fees</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-label-md">Academics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-md text-label-md">More</span>
+</div>
+</nav>
+</body></html>

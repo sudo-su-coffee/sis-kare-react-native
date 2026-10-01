@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jobs &amp; Internships Board | SIS KARE Prototype</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#8293b5",
+                        "secondary-fixed": "#c9e6ff",
+                        "secondary-fixed-dim": "#89ceff",
+                        "on-secondary-fixed-variant": "#004c6e",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#004666",
+                        "inverse-surface": "#213145",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-tint": "#4e5f7e",
+                        "on-tertiary-container": "#909395",
+                        "surface-container-low": "#eff4ff",
+                        "secondary-container": "#39b8fd",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "primary-fixed": "#d7e2ff",
+                        "background": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#44474d",
+                        "surface-container": "#e5eeff",
+                        "surface": "#f8f9ff",
+                        "outline-variant": "#c5c6ce",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "primary": "#031632",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-fixed": "#191c1e",
+                        "surface-dim": "#cbdbf5",
+                        "surface-variant": "#d3e4fe",
+                        "tertiary": "#141719",
+                        "on-primary-fixed": "#081b38",
+                        "on-secondary-fixed": "#001e2f",
+                        "secondary": "#006591",
+                        "primary-container": "#1a2b48",
+                        "outline": "#75777e",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#282c2e",
+                        "on-primary-fixed-variant": "#374765",
+                        "on-background": "#0b1c30",
+                        "inverse-primary": "#b6c7eb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "1rem",
+                        "card-padding": "1.25rem",
+                        "inline-gap": "0.75rem",
+                        "container-margin": "1rem",
+                        "section-padding": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "body-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-primary dark:bg-primary-container docked full-width top-0 shadow-sm z-40 sticky">
+<div class="flex justify-between items-center w-full px-container-margin h-16 max-w-[480px] mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container">
+<img alt="Student Profile Photo" class="w-full h-full object-cover" data-alt="A professional headshot of a university student with a friendly expression, set against a blurred academic background. The lighting is soft and natural, emphasizing a bright, corporate light-mode aesthetic suitable for a Career Services portal. The composition is centered, focusing on professional clarity and reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd-UN-RxYJfHqBK0FX_UFe-_G_dplxFUnv2-PEUUtsdhSHdHbzpM138GvQtWsO9m6ZvxeytdGBqq-lr6Nkgk6xNLcbdU0SX0VhxYNiK84Ww9z2PETsAS4iWK0VaOMSmE7c1tCQdu2u3Yx956y38dkhKi7ehsVXZoq4enjopBK3ZGZ8Sk2Q-iomruXeRw_HB8ojwrDUyWsBhjLaXXa1wz0hp96UY3egG7utSNSB1bgLvoyox4aLg7nPHrrLSeLCEL8I6syFBZ9V_yU"/>
+</div>
+<h1 class="font-headline-md-mobile text-headline-md-mobile font-bold text-on-primary">Career Services</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-on-primary">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-[480px] mx-auto px-container-margin py-6 space-y-6">
+<!-- Search and Filters Section -->
+<section class="space-y-4">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full h-12 pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all shadow-sm" placeholder="Search opportunities..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto hide-scrollbar -mx-container-margin px-container-margin">
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full font-label-bold text-label-bold whitespace-nowrap shadow-sm border border-transparent">All Jobs</button>
+<button class="bg-surface-container-lowest text-on-surface-variant border border-outline-variant px-4 py-2 rounded-full font-label-bold text-label-bold whitespace-nowrap hover:bg-surface-container-low transition-colors">Software</button>
+<button class="bg-surface-container-lowest text-on-surface-variant border border-outline-variant px-4 py-2 rounded-full font-label-bold text-label-bold whitespace-nowrap hover:bg-surface-container-low transition-colors">Data Science</button>
+<button class="bg-surface-container-lowest text-on-surface-variant border border-outline-variant px-4 py-2 rounded-full font-label-bold text-label-bold whitespace-nowrap hover:bg-surface-container-low transition-colors">Core Engineering</button>
+<button class="bg-surface-container-lowest text-on-surface-variant border border-outline-variant px-4 py-2 rounded-full font-label-bold text-label-bold whitespace-nowrap hover:bg-surface-container-low transition-colors">Finance</button>
+</div>
+</section>
+<!-- Job Listings -->
+<div class="space-y-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex justify-between items-center px-1">
+                Active Opportunities
+                <span class="font-label-md text-label-md text-on-surface-variant font-normal">24 matches</span>
+</h2>
+<!-- Card 1: Software Engineer -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-sm hover:shadow-md transition-shadow">
+<div class="flex gap-4 items-start mb-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center p-2 border border-outline-variant/30">
+<img alt="Company Logo" class="w-full h-full object-contain" data-alt="A clean, minimalist tech company logo featuring abstract geometric shapes in deep navy and sky blue tones. The logo is presented on a crisp white background within a rounded square, embodying professional corporate identity and academic precision. The lighting is uniform, highlighting the sharp edges and modern typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQvUdC-UV1i8U2WnbfSA6bRHEv8_Uy4LQe6ADgak9p9xBSOfyrhoF5ZIGhg5C88LcnvXlD0SGkeqFO3f0Lr5N6PfS7EW1lGbmfyFUp-5klu30PCOIDPbsuFxzqey_GS-9Aad-5t3_0rYsgUm55VBhe1KqPAIdd8vBOk3sz1Yw-miw0BtlCWeExXpYTR2XluHXSOJbuBwV6EWd9tG4XjZmi_2C0hHcaYBitkA57CGy41Ypp4c380Pb1bgSfGVnGxXHw_Ku-pHVwwWw"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Software Engineering Intern</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">TechNexus Systems</p>
+</div>
+<span class="bg-secondary-container/20 text-on-secondary-container px-2 py-1 rounded font-label-bold text-label-bold">Internship</span>
+</div>
+<div class="grid grid-cols-2 gap-y-3 mb-5">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="font-label-bold text-label-bold">Palo Alto, CA</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+<span class="font-label-bold text-label-bold">$45 - $55 / hr</span>
+</div>
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-[18px]">event</span>
+<span class="font-label-bold text-label-bold">Deadline: Oct 15</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary h-12 rounded-lg font-headline-sm text-headline-sm hover:opacity-90 transition-opacity active:scale-95 duration-100">Apply</button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-primary">bookmark</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Data Analyst -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-sm hover:shadow-md transition-shadow">
+<div class="flex gap-4 items-start mb-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center p-2 border border-outline-variant/30">
+<img alt="Company Logo" class="w-full h-full object-contain" data-alt="A sophisticated financial institution logo incorporating a stylized globe icon in silver and deep blue hues. The design is sleek and professional, conveying trust and global reach within a modern, minimalist frame. The background is a clean, neutral white, reflecting a corporate and institutional visual language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrac274mwDpoIX9yfXanHZzl60HrtDBUoBWGlx-6gxF0CrlLXozCBeyi02DEKPIQIocXulU4vIHMk2_GUSFNpy2ez-_ua_RICZ9-ZjsGra3UvJBRMKud9LCuA0kxLc6ntT2lE-Yk9v-BUqs-W7W1XKKpfXukiDxB3tbJ0ArVXVaf4y7zFO0WCXviJnFHSRnVs4TOrMZkph-jreONnAsFyHoxhNQGRADswDOY50IVxaphMu0XYiYOP1RgJzCNem7U6yP4ZT_dVwpx0"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Junior Data Scientist</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Global Insights Group</p>
+</div>
+<span class="bg-surface-container text-on-surface-variant px-2 py-1 rounded font-label-bold text-label-bold">Full-time</span>
+</div>
+<div class="grid grid-cols-2 gap-y-3 mb-5">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="font-label-bold text-label-bold">Remote</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+<span class="font-label-bold text-label-bold">$95k - $110k</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">event</span>
+<span class="font-label-bold text-label-bold">Deadline: Nov 02</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary h-12 rounded-lg font-headline-sm text-headline-sm hover:opacity-90 transition-opacity active:scale-95 duration-100">Apply</button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-primary">bookmark</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Mechanical Engineer -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-sm hover:shadow-md transition-shadow">
+<div class="flex gap-4 items-start mb-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center p-2 border border-outline-variant/30">
+<img alt="Company Logo" class="w-full h-full object-contain" data-alt="An industrial engineering firm's logo featuring a precision gear icon integrated with a modern serif font. The color palette is dominated by charcoal grey and industrial blue, symbolizing technical rigor and academic excellence. The overall style is clean, corporate, and high-contrast, fitting for a prestigious career board." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzq-RXhSstCmFkMhpZABMVnbOhV4Dy_1b5ZGiqzzTj2HOrtPrWDqzAkVkN55vZqBi5ghmdFFdrgUKS-QaaYsc-I6BzxOfEaQKB9DJGlR1grL68j4W0j_aCDeU0WyViogZ9vyfv5qcX1xhMdLfGKvMy76y_f9qrYol8F_3inV5pUB6hhFVnFXBrREZKxRKUZbRZArdXRsVZJLRl0yUFZOasuB3J6Ty2AM25pD9SuHLGBYSkQYtWju_n7DIMyTvZDtBW_HLjAzMnS-E"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Product Design Engineer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">AeroCore Dynamics</p>
+</div>
+<span class="bg-secondary-container/20 text-on-secondary-container px-2 py-1 rounded font-label-bold text-label-bold">Co-op</span>
+</div>
+<div class="grid grid-cols-2 gap-y-3 mb-5">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="font-label-bold text-label-bold">Austin, TX</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+<span class="font-label-bold text-label-bold">$38 - $42 / hr</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">event</span>
+<span class="font-label-bold text-label-bold">Deadline: Oct 28</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary h-12 rounded-lg font-headline-sm text-headline-sm hover:opacity-90 transition-opacity active:scale-95 duration-100">Apply</button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-primary">bookmark</span>
+</button>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container-lowest dark:bg-surface-container-low max-w-[480px] left-1/2 -translate-x-1/2 border-t border-outline-variant dark:border-outline shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Fees</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary-fixed text-on-secondary-container dark:text-on-secondary-fixed rounded-xl px-3 py-1.5 active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-label-md">Academics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-label-md text-label-md">More</span>
+</a>
+</nav>
+</body></html>

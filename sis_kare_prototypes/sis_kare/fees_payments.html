@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fees &amp; Payments | SIS KARE Prototype</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#0b1c30",
+                        "outline-variant": "#c5c6ce",
+                        "on-secondary-fixed-variant": "#004c6e",
+                        "tertiary": "#141719",
+                        "surface-tint": "#4e5f7e",
+                        "surface": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-container": "#004666",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#081b38",
+                        "on-primary-fixed-variant": "#374765",
+                        "secondary-fixed-dim": "#89ceff",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b6c7eb",
+                        "surface-bright": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#909395",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#001e2f",
+                        "secondary": "#006591",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary-container": "#1a2b48",
+                        "tertiary-container": "#282c2e",
+                        "on-tertiary-fixed": "#191c1e",
+                        "primary": "#031632",
+                        "surface-dim": "#cbdbf5",
+                        "secondary-fixed": "#c9e6ff",
+                        "on-background": "#0b1c30",
+                        "secondary-container": "#39b8fd",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-surface": "#213145",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "primary-fixed": "#d7e2ff",
+                        "background": "#f8f9ff",
+                        "on-surface-variant": "#44474d",
+                        "on-primary-container": "#8293b5",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "outline": "#75777e",
+                        "inverse-on-surface": "#eaf1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "1.5rem",
+                        "inline-gap": "0.75rem",
+                        "stack-gap": "1rem",
+                        "card-padding": "1.25rem",
+                        "container-margin": "1rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "body-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-container-margin py-3 w-full fixed top-0 z-50 bg-primary dark:bg-primary shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">KARE-SIS</h1>
+</div>
+<span class="material-symbols-outlined text-on-primary">person</span>
+</header>
+<!-- Content Canvas -->
+<main class="mt-16 px-container-margin pt-6 flex flex-col gap-6 max-w-[480px] mx-auto">
+<!-- Total Due Hero Card -->
+<section class="bg-primary-container text-on-primary rounded-xl p-card-padding shadow-md">
+<h2 class="font-label-bold text-label-bold text-on-primary-container uppercase tracking-wider opacity-80">Total Due — 2025-26</h2>
+<p class="font-display-lg-mobile text-display-lg-mobile mt-2">₹1,30,000</p>
+<div class="mt-6 flex gap-4">
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-primary-container opacity-80">Paid</p>
+<p class="font-headline-sm text-headline-sm text-[#4ade80]">₹85,000</p>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-primary-container opacity-80">Balance</p>
+<p class="font-headline-sm text-headline-sm text-[#fbbf24]">₹45,000</p>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-primary-container opacity-80">Due Date</p>
+<p class="font-headline-sm text-headline-sm text-[#f87171]">30 Jun</p>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="mt-4">
+<div class="w-full bg-surface/20 rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 65%;"></div>
+</div>
+<p class="font-label-md text-label-md mt-2 opacity-80">65% paid</p>
+</div>
+</section>
+<!-- Active Fee Heads -->
+<div class="flex flex-col gap-4">
+<h3 class="font-headline-sm text-headline-sm px-1">Active Fee Payments</h3>
+<!-- Semester Fee Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding flex items-start gap-4 shadow-sm">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">school</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm">Semester Fee — I</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">12 Jan 2026 • Online</p>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface">₹42,500</p>
+</div>
+<div class="mt-3 flex justify-between items-center">
+<span class="px-3 py-1 bg-green-100 text-green-800 rounded-full font-label-bold text-[10px] uppercase">Paid</span>
+<button class="text-secondary font-label-bold text-label-bold hover:underline">View Receipt</button>
+</div>
+</div>
+</div>
+<!-- Hostel Fee Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding flex items-start gap-4 shadow-sm">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">apartment</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Hostel Fee — Q3</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-error font-medium">Due: 30 Jun 2026</p>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface">₹22,500</p>
+</div>
+<div class="mt-4">
+<button class="w-full bg-secondary py-2 rounded-lg text-on-secondary font-label-bold text-label-bold">Pay Now</button>
+</div>
+</div>
+</div>
+<!-- Other Fee Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding flex items-start gap-4 shadow-sm">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm">Semester Fee — II</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Due: 30 Jun 2026</p>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface">₹45,000</p>
+</div>
+<div class="mt-3">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full font-label-bold text-[10px] uppercase">Upcoming</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Billing Ledger History -->
+<section>
+<div class="flex justify-between items-center px-1 mb-4">
+<h3 class="font-headline-sm text-headline-sm">Authentic Billing Ledger History</h3>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">filter_list</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<!-- Ledger Item 1 -->
+<div class="p-card-padding border-b border-outline-variant hover:bg-surface transition-colors cursor-pointer">
+<div class="flex justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-primary"># 472078</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">13-03-2025 • Certificate Fees</p>
+</div>
+<p class="font-label-bold text-label-bold text-green-600">₹750.0</p>
+</div>
+</div>
+<!-- Ledger Item 2 -->
+<div class="p-card-padding border-b border-outline-variant hover:bg-surface transition-colors cursor-pointer">
+<div class="flex justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-primary"># 391117</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">18-03-2025 • Backlog Processing</p>
+</div>
+<p class="font-label-bold text-label-bold text-green-600">₹5000.0</p>
+</div>
+</div>
+<!-- Ledger Item 3 -->
+<div class="p-card-padding border-b border-outline-variant hover:bg-surface transition-colors cursor-pointer">
+<div class="flex justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-primary"># 363262</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">27-12-2024 • Tuition Allocation</p>
+</div>
+<p class="font-label-bold text-label-bold text-green-600">₹25000.0</p>
+</div>
+</div>
+<!-- Ledger Item 4 -->
+<div class="p-card-padding border-b border-outline-variant hover:bg-surface transition-colors cursor-pointer">
+<div class="flex justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-primary"># 353623</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">15-11-2024 • Arrear Examination</p>
+</div>
+<p class="font-label-bold text-label-bold text-green-600">₹1000.0</p>
+</div>
+</div>
+<!-- Ledger Item 5 -->
+<div class="p-card-padding hover:bg-surface transition-colors cursor-pointer">
+<div class="flex justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-primary"># 312597</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">12-08-2024 • Miscellaneous Core</p>
+</div>
+<p class="font-label-bold text-label-bold text-green-600">₹10000.0</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-4 py-3 font-label-bold text-label-bold text-secondary-container bg-primary-container rounded-xl">
+                Download Statement (PDF)
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface-container rounded-t-xl shadow-lg border-t border-outline-variant dark:border-outline">
+<!-- Home -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-2 rounded-lg transition-transform active:scale-95 duration-150">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</div>
+<!-- Schedule -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-2 rounded-lg transition-transform active:scale-95 duration-150">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md mt-1">Schedule</span>
+</div>
+<!-- Fees (Active) -->
+<div class="flex flex-col items-center justify-center text-secondary font-bold hover:bg-surface-container-highest/50 p-2 rounded-lg transition-transform active:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-md text-label-md mt-1">Fees</span>
+</div>
+<!-- Academics -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-2 rounded-lg transition-transform active:scale-95 duration-150">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md mt-1">Academics</span>
+</div>
+<!-- More -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-2 rounded-lg transition-transform active:scale-95 duration-150">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-md text-label-md mt-1">More</span>
+</div>
+</nav>
+</body></html>

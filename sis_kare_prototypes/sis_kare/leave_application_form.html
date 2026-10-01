@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Leave Application Form | SIS KARE Prototype</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary-fixed-dim": "#89ceff",
+                "primary": "#031632",
+                "on-secondary": "#ffffff",
+                "on-primary-fixed": "#081b38",
+                "surface-container": "#e5eeff",
+                "tertiary-fixed-dim": "#c4c7c9",
+                "on-tertiary-container": "#909395",
+                "on-tertiary": "#ffffff",
+                "background": "#f8f9ff",
+                "on-secondary-fixed": "#001e2f",
+                "on-error": "#ffffff",
+                "inverse-on-surface": "#eaf1ff",
+                "primary-fixed-dim": "#b6c7eb",
+                "primary-fixed": "#d7e2ff",
+                "secondary": "#006591",
+                "outline-variant": "#c5c6ce",
+                "secondary-container": "#39b8fd",
+                "on-error-container": "#93000a",
+                "on-surface-variant": "#44474d",
+                "on-secondary-container": "#004666",
+                "error-container": "#ffdad6",
+                "inverse-primary": "#b6c7eb",
+                "surface-container-low": "#eff4ff",
+                "secondary-fixed": "#c9e6ff",
+                "primary-container": "#1a2b48",
+                "tertiary-fixed": "#e0e3e5",
+                "surface-variant": "#d3e4fe",
+                "surface-tint": "#4e5f7e",
+                "on-primary-container": "#8293b5",
+                "on-tertiary-fixed": "#191c1e",
+                "inverse-surface": "#213145",
+                "surface-container-highest": "#d3e4fe",
+                "error": "#ba1a1a",
+                "outline": "#75777e",
+                "tertiary-container": "#282c2e",
+                "surface-dim": "#cbdbf5",
+                "tertiary": "#141719",
+                "surface": "#f8f9ff",
+                "on-tertiary-fixed-variant": "#444749",
+                "on-primary-fixed-variant": "#374765",
+                "on-surface": "#0b1c30",
+                "surface-container-lowest": "#ffffff",
+                "on-primary": "#ffffff",
+                "surface-bright": "#f8f9ff",
+                "on-secondary-fixed-variant": "#004c6e",
+                "on-background": "#0b1c30",
+                "surface-container-high": "#dce9ff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "container-margin": "1rem",
+                "inline-gap": "0.75rem",
+                "stack-gap": "1rem",
+                "section-padding": "1.5rem",
+                "card-padding": "1.25rem"
+            },
+            "fontFamily": {
+                "body-md": ["Manrope"],
+                "headline-sm": ["Manrope"],
+                "headline-md": ["Manrope"],
+                "label-md": ["Manrope"],
+                "label-bold": ["Manrope"],
+                "display-lg-mobile": ["Manrope"],
+                "body-lg": ["Manrope"],
+                "display-lg": ["Manrope"],
+                "body-sm": ["Manrope"]
+            },
+            "fontSize": {
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      body {
+        font-family: 'Manrope', sans-serif;
+        background-color: #f1f5f9; /* Level 0 Background */
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .step-inactive { opacity: 0.3; pointer-events: none; }
+      .step-content { transition: all 0.3s ease; }
+      .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-container-margin py-3 w-full fixed top-0 z-50 bg-primary dark:bg-primary shadow-sm">
+<div class="flex items-center gap-3">
+<button class="text-on-primary hover:bg-primary-container/20 p-1 rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">KARE-SIS</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-on-primary-container font-label-bold text-label-bold hidden md:block">J. Sathvik</span>
+<button class="text-on-primary hover:bg-primary-container/20 p-1 rounded-full transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</header>
+<main class="pt-20 px-4 max-w-[480px] mx-auto space-y-6">
+<!-- Welcome Card -->
+<section class="bg-surface-container-lowest border border-outline-variant p-card-padding rounded-xl shadow-sm">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-1">Hostel Leave Request</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Submit your leave application for Warden approval. Please ensure all details are accurate.</p>
+</section>
+<!-- Stepper Navigation -->
+<nav class="flex justify-between items-center px-2">
+<div class="flex flex-col items-center gap-1" id="step-indicator-1">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm">1</div>
+<span class="font-label-md text-label-md text-primary">Type</span>
+</div>
+<div class="h-[2px] flex-1 bg-outline-variant mx-2 mb-4"></div>
+<div class="flex flex-col items-center gap-1 opacity-40" id="step-indicator-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-sm">2</div>
+<span class="font-label-md text-label-md">Duration</span>
+</div>
+<div class="h-[2px] flex-1 bg-outline-variant mx-2 mb-4"></div>
+<div class="flex flex-col items-center gap-1 opacity-40" id="step-indicator-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-sm">3</div>
+<span class="font-label-md text-label-md">Details</span>
+</div>
+</nav>
+<!-- Form Container -->
+<form class="space-y-4" id="leave-form">
+<!-- Step 1: Leave Type -->
+<div class="step-content space-y-4" id="step-1">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding">
+<label class="font-label-bold text-label-bold block mb-3 text-on-surface-variant uppercase tracking-wider">Select Leave Type</label>
+<div class="grid grid-cols-1 gap-3">
+<label class="relative flex items-center p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-secondary has-[:checked]:bg-secondary-container/10">
+<input checked="" class="hidden peer" name="leave_type" type="radio" value="Home"/>
+<div class="flex items-center gap-4 w-full">
+<div class="bg-surface-container-highest p-2 rounded-lg text-primary peer-checked:text-secondary">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div class="flex-1">
+<p class="font-headline-sm text-headline-sm text-on-surface">Home Leave</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Visiting permanent residence</p>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-0 peer-checked:opacity-100">check_circle</span>
+</div>
+</label>
+<label class="relative flex items-center p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-secondary has-[:checked]:bg-secondary-container/10">
+<input class="hidden peer" name="leave_type" type="radio" value="Outing"/>
+<div class="flex items-center gap-4 w-full">
+<div class="bg-surface-container-highest p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">directions_walk</span>
+</div>
+<div class="flex-1">
+<p class="font-headline-sm text-headline-sm text-on-surface">Local Outing</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Day trip within the city limits</p>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-0 peer-checked:opacity-100">check_circle</span>
+</div>
+</label>
+<label class="relative flex items-center p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-secondary has-[:checked]:bg-secondary-container/10">
+<input class="hidden peer" name="leave_type" type="radio" value="Emergency"/>
+<div class="flex items-center gap-4 w-full">
+<div class="bg-error-container/30 p-2 rounded-lg text-error">
+<span class="material-symbols-outlined">emergency</span>
+</div>
+<div class="flex-1">
+<p class="font-headline-sm text-headline-sm text-on-surface">Emergency</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Urgent medical or family matters</p>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-0 peer-checked:opacity-100">check_circle</span>
+</div>
+</label>
+</div>
+</div>
+<button class="w-full h-[48px] bg-primary text-on-primary rounded-lg font-headline-sm text-headline-sm shadow-md hover:opacity-90 active:scale-[0.98] transition-all" onclick="nextStep(2)" type="button">
+                    Continue to Date &amp; Time
+                </button>
+</div>
+<!-- Step 2: Date & Time (Hidden by default) -->
+<div class="step-content hidden space-y-4" id="step-2">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding">
+<label class="font-label-bold text-label-bold block mb-4 text-on-surface-variant uppercase tracking-wider">Leave Duration</label>
+<div class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="font-label-bold text-label-bold text-on-surface-variant ml-1">Departure Date</label>
+<input class="w-full p-3 border border-outline-variant rounded-lg bg-surface text-on-surface focus:border-secondary focus:ring-0 outline-none" type="date"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-bold text-label-bold text-on-surface-variant ml-1">Departure Time</label>
+<input class="w-full p-3 border border-outline-variant rounded-lg bg-surface text-on-surface focus:border-secondary focus:ring-0 outline-none" type="time"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="font-label-bold text-label-bold text-on-surface-variant ml-1">Expected Return Date</label>
+<input class="w-full p-3 border border-outline-variant rounded-lg bg-surface text-on-surface focus:border-secondary focus:ring-0 outline-none" type="date"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-bold text-label-bold text-on-surface-variant ml-1">Expected Return Time</label>
+<input class="w-full p-3 border border-outline-variant rounded-lg bg-surface text-on-surface focus:border-secondary focus:ring-0 outline-none" type="time"/>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 h-[48px] bg-surface-container-highest text-on-surface-variant rounded-lg font-headline-sm text-headline-sm border border-outline-variant" onclick="nextStep(1)" type="button">
+                        Back
+                    </button>
+<button class="flex-[2] h-[48px] bg-primary text-on-primary rounded-lg font-headline-sm text-headline-sm shadow-md hover:opacity-90 transition-all" onclick="nextStep(3)" type="button">
+                        Reason &amp; Contact
+                    </button>
+</div>
+</div>
+<!-- Step 3: Reason & Contact (Hidden by default) -->
+<div class="step-content hidden space-y-4" id="step-3">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding space-y-4">
+<div class="space-y-1">
+<label class="font-label-bold text-label-bold text-on-surface-variant ml-1">Detailed Reason</label>
+<textarea class="w-full p-3 border border-outline-variant rounded-lg bg-surface text-on-surface focus:border-secondary focus:ring-0 outline-none resize-none" placeholder="Please describe the purpose of your leave..." rows="3"></textarea>
+</div>
+<div class="space-y-1">
+<label class="font-label-bold text-label-bold text-on-surface-variant ml-1">Parent/Guardian Mobile</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant material-symbols-outlined text-sm">phone</span>
+<input class="w-full p-3 pl-10 border border-outline-variant rounded-lg bg-surface text-on-surface focus:border-secondary focus:ring-0 outline-none" placeholder="+91 00000 00000" type="tel"/>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg border border-outline-variant/50">
+<input class="mt-1 rounded text-secondary focus:ring-secondary" id="consent" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface-variant" for="consent">I hereby declare that the information provided is true and I have obtained verbal consent from my parents.</label>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 h-[48px] bg-surface-container-highest text-on-surface-variant rounded-lg font-headline-sm text-headline-sm border border-outline-variant" onclick="nextStep(2)" type="button">
+                        Back
+                    </button>
+<button class="flex-[2] h-[48px] bg-secondary text-on-secondary rounded-lg font-headline-sm text-headline-sm shadow-lg hover:opacity-95 active:scale-95 transition-all" type="submit">
+                        Submit Application
+                    </button>
+</div>
+</div>
+</form>
+<!-- Previous Applications Section -->
+<section class="space-y-4 pt-4">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm text-primary">Previous Applications</h3>
+<button class="text-secondary font-label-bold text-label-bold flex items-center gap-1">
+                    View All <span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+</button>
+</div>
+<!-- Application Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-4 border-b border-outline-variant/50 flex justify-between items-start">
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface">Home Leave</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">App ID: #HL-8293</p>
+</div>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant font-label-bold text-label-bold rounded-full border border-outline-variant/50 uppercase">Pending</span>
+</div>
+<div class="p-4 bg-surface-container-low/30 grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] font-bold text-on-tertiary-fixed-variant uppercase">Departure</p>
+<p class="font-body-md text-body-md">Oct 24, 05:00 PM</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-on-tertiary-fixed-variant uppercase">Return</p>
+<p class="font-body-md text-body-md">Oct 27, 08:00 AM</p>
+</div>
+</div>
+</div>
+<!-- Application Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-4 border-b border-outline-variant/50 flex justify-between items-start">
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface">Local Outing</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">App ID: #LO-7412</p>
+</div>
+<span class="px-3 py-1 bg-green-100 text-green-800 font-label-bold text-label-bold rounded-full border border-green-200 uppercase">Approved</span>
+</div>
+<div class="p-4 bg-surface-container-low/30 grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] font-bold text-on-tertiary-fixed-variant uppercase">Departure</p>
+<p class="font-body-md text-body-md">Oct 20, 09:00 AM</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-on-tertiary-fixed-variant uppercase">Return</p>
+<p class="font-body-md text-body-md">Oct 20, 07:00 PM</p>
+</div>
+</div>
+</div>
+<!-- Application Card 3 (Rejected) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-4 border-b border-outline-variant/50 flex justify-between items-start">
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface">Home Leave</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">App ID: #HL-6610</p>
+</div>
+<span class="px-3 py-1 bg-error-container text-on-error-container font-label-bold text-label-bold rounded-full border border-error/20 uppercase">Rejected</span>
+</div>
+<div class="p-4 bg-error-container/5">
+<p class="text-[10px] font-bold text-error uppercase mb-1">Reason for Rejection</p>
+<p class="font-body-sm text-body-sm text-on-error-container">Incomplete attendance in B.Tech Lab sessions. Please complete your quota before applying for weekend leave.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface-container shadow-lg border-t border-outline-variant dark:border-outline rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-1 px-3 rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-1 px-3 rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary font-bold hover:bg-surface-container-highest/50 p-1 px-3 rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-md text-label-md">Hostel</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-1 px-3 rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Academics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-1 px-3 rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-md text-label-md">More</span>
+</a>
+</nav>
+<script>
+        function nextStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
+            
+            // Show target step
+            document.getElementById(`step-${step}`).classList.remove('hidden');
+            
+            // Update step indicators
+            for (let i = 1; i <= 3; i++) {
+                const indicator = document.getElementById(`step-indicator-${i}`);
+                const circle = indicator.querySelector('div');
+                const label = indicator.querySelector('span');
+                
+                if (i < step) {
+                    // Completed
+                    indicator.classList.remove('opacity-40');
+                    circle.classList.remove('bg-primary', 'bg-surface-container-highest', 'text-on-primary');
+                    circle.classList.add('bg-secondary', 'text-on-secondary');
+                    circle.innerHTML = '<span class="material-symbols-outlined text-sm">check</span>';
+                    label.classList.add('text-primary');
+                } else if (i === step) {
+                    // Active
+                    indicator.classList.remove('opacity-40');
+                    circle.classList.remove('bg-secondary', 'bg-surface-container-highest', 'text-on-secondary');
+                    circle.classList.add('bg-primary', 'text-on-primary');
+                    circle.textContent = i;
+                    label.classList.add('text-primary');
+                } else {
+                    // Future
+                    indicator.classList.add('opacity-40');
+                    circle.classList.remove('bg-primary', 'bg-secondary', 'text-on-primary', 'text-on-secondary');
+                    circle.classList.add('bg-surface-container-highest', 'text-on-surface-variant');
+                    circle.textContent = i;
+                    label.classList.remove('text-primary');
+                }
+            }
+            
+            // Scroll to top of form
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Form submission animation
+        document.getElementById('leave-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.submitter;
+            const originalText = btn.textContent;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...</span>';
+            
+            setTimeout(() => {
+                alert('Leave application submitted successfully! Redirecting to dashboard...');
+                window.location.reload();
+            }, 1500);
+        });
+    </script>
+</body></html>

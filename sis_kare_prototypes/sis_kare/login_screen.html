@@ -1,0 +1,223 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Login Screen | SIS KARE Prototype</title>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#0b1c30",
+                        "outline-variant": "#c5c6ce",
+                        "on-secondary-fixed-variant": "#004c6e",
+                        "tertiary": "#141719",
+                        "surface-tint": "#4e5f7e",
+                        "surface": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-container": "#004666",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#081b38",
+                        "on-primary-fixed-variant": "#374765",
+                        "secondary-fixed-dim": "#89ceff",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b6c7eb",
+                        "surface-bright": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#909395",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#001e2f",
+                        "secondary": "#006591",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary-container": "#1a2b48",
+                        "tertiary-container": "#282c2e",
+                        "on-tertiary-fixed": "#191c1e",
+                        "primary": "#031632",
+                        "surface-dim": "#cbdbf5",
+                        "secondary-fixed": "#c9e6ff",
+                        "on-background": "#0b1c30",
+                        "secondary-container": "#39b8fd",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-surface": "#213145",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "primary-fixed": "#d7e2ff",
+                        "background": "#f8f9ff",
+                        "on-surface-variant": "#44474d",
+                        "on-primary-container": "#8293b5",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "outline": "#75777e",
+                        "inverse-on-surface": "#eaf1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "1.5rem",
+                        "inline-gap": "0.75rem",
+                        "stack-gap": "1rem",
+                        "container-margin": "1rem",
+                        "card-padding": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "body-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #031632;
+        }
+        .login-canvas {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            max-width: 480px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .curved-container {
+            background-color: #f8f9ff;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            padding: 2.5rem 1.5rem 3rem 1.5rem;
+            box-shadow: 0 -10px 25px rgba(0,0,0,0.1);
+        }
+        .social-button {
+            border: 1px solid #e2e8f0;
+            background: white;
+            transition: all 0.2s ease;
+        }
+        .social-button:active {
+            background-color: #f1f5f9;
+            transform: scale(0.98);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style data-stitch-cursor="">*{cursor:crosshair!important}[contenteditable="true"]:focus,.cursor-text:focus{cursor:text!important}</style><style data-stitch-scroll-lock="">html,body{overflow:hidden!important}</style></head>
+<body class="bg-primary">
+<div class="login-canvas">
+<!-- Hero Branding Section -->
+<div class="flex-grow flex flex-col items-center justify-center p-8">
+<div class="mb-6 relative">
+<div class="w-32 h-32 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md">
+
+</div>
+</div>
+<div class="text-center">
+<h1 class="font-headline-md text-headline-md text-on-primary tracking-wider">KARE-SIS</h1>
+<p class="font-label-md text-label-md text-on-primary-container mt-1 opacity-80 uppercase tracking-widest">Student Information System</p>
+</div>
+</div>
+<!-- Login Card -->
+<div class="curved-container">
+<div class="mb-8">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface">Welcome back</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Please enter your credentials to access your portal.</p>
+</div>
+<form class="space-y-5">
+<!-- Registration Number -->
+<div>
+<label class="font-label-bold text-label-bold text-on-surface-variant block mb-2 px-1">Register Number</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">badge</span>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-low border border-outline-variant rounded-xl focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all font-body-md text-on-surface" placeholder="e.g. 23CS101" type="text">
+</div>
+</div>
+<!-- Password -->
+<div>
+<label class="font-label-bold text-label-bold text-on-surface-variant block mb-2 px-1">Password</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full h-14 pl-12 pr-12 bg-surface-container-low border border-outline-variant rounded-xl focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all font-body-md text-on-surface" placeholder="••••••••" type="password">
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-secondary" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Options -->
+<div class="flex items-center justify-between px-1">
+<label class="flex items-center cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox">
+<span class="ml-2 font-body-sm text-body-sm text-on-surface-variant">Remember me</span>
+</label>
+<a class="font-body-sm text-body-sm text-secondary font-bold hover:underline" href="#">Forgot password?</a>
+</div>
+<!-- Action Button -->
+<button class="w-full h-14 bg-primary text-on-primary font-headline-sm text-headline-sm rounded-xl shadow-lg hover:bg-primary-container transition-all active:scale-[0.98] mt-4" type="submit">
+                    Sign In
+                </button>
+<!-- Divider -->
+<div class="relative flex items-center py-4">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink mx-4 font-label-md text-label-md text-outline">OR</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<!-- Social Login -->
+<button class="social-button w-full h-14 rounded-xl flex items-center justify-center gap-3" type="button">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp7XenkH_o0SE4ePU4zsNWPKhljPqzraSyyfTOVz_lAdPb5EFhrnBguO42TkBe0_RU9ZA_WglsVkX4a8woZsDNFcHPlXR70kt3iHzgweJPVmiGXvn2I6aoHW9X4MeCjlDTSEoFLJIytjKCjEYWmYvqi0Oj1pybI3Hnj7DDkvkOtok_-nY2e3KyS3VsCUhUOCdZRQWE8C8A_rEBxReCLsi8Ogz6rvy4xtv3QWD3tRxRtDzd_4c1YyLDNZWuyjRFWyQBsfy5ZkHQAc8">
+<span class="font-headline-sm text-headline-sm text-on-surface">Continue with Google</span>
+</button>
+</form>
+<div class="mt-8 text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Don't have an account? 
+                    <a class="text-secondary font-bold hover:underline" href="#">Contact Admin</a>
+</p>
+<div class="mt-6 font-label-md text-label-md text-outline-variant uppercase tracking-tighter opacity-50">
+                    SDT-KARE • v2.0.4
+                </div>
+</div>
+</div>
+</div>
+
+
+</body></html>

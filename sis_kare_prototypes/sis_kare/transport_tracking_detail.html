@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transport Tracking — Route Details | SIS KARE Prototype</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            backdrop-filter: blur(8px);
+            background: rgba(3, 22, 50, 0.95);
+        }
+        .map-gradient {
+            background: linear-gradient(to bottom, rgba(248, 249, 255, 0) 0%, rgba(248, 249, 255, 1) 100%);
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.33); opacity: 1; }
+            80%, 100% { opacity: 0; }
+        }
+        .pulse-marker::before {
+            content: '';
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            left: -100%;
+            top: -100%;
+            background-color: #006591;
+            border-radius: 50%;
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-container-margin py-3 w-full fixed top-0 z-50 bg-primary shadow-sm">
+<div class="flex items-center gap-3">
+<button class="text-on-primary hover:bg-primary-container/20 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">KARE-SIS</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-bold text-label-bold text-on-primary bg-primary-container px-2 py-1 rounded">LIVE</span>
+<button class="text-on-primary hover:bg-primary-container/20 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</header>
+<main class="pt-16 max-w-[480px] mx-auto">
+<!-- Interactive Map Section -->
+<section class="relative h-80 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="A clean, professional digital map interface showing a suburban university campus layout. The map features high-contrast navy roads and slate-grey building outlines on a light parchment-colored background. A stylized blue bus icon with a subtle glowing pulse effect is positioned on a main arterial road, heading towards a prominent university entrance. The overall visual style is corporate and information-dense, reflecting an academic precision design system." data-location="Madurai Campus, India" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1Wpf_59fg8dw1LEDHmRC7VJfEpCqsmO4min0NPrbuG1feLVjxEGp1vyq8c1XlGV5pWzV_TLPXqk-G1_ZhE8j_h2CDpmAIHcWZcg5KzLOxVzAMMkUDm0orp9PdMGy_nOr1cbPO2OQ27uzsjq9QxCXbzQPUbXBsE6a5hWgLyVFk8tvHKbGPx6PXS6fu1vUq-3odrQ6GqwNRGyiO9V3ZQ2wBaorvJbA4bZRXLsG7FlOKFN2kpg6BzgqVYMcaHjaAufu7Z09unLrJtEc')"></div>
+<!-- Map Overlays -->
+<div class="absolute inset-0 map-gradient pointer-events-none"></div>
+<div class="absolute top-4 left-4 right-4 flex justify-between items-start pointer-events-none">
+<div class="bg-surface-container-lowest shadow-lg p-3 rounded-lg border border-outline-variant flex flex-col gap-1 pointer-events-auto">
+<span class="text-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Active Route</span>
+<span class="text-headline-sm text-headline-sm text-primary">Route 42A</span>
+</div>
+<button class="bg-surface-container-lowest shadow-lg p-3 rounded-full border border-outline-variant text-primary pointer-events-auto active:scale-95 transition-transform">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+<!-- Animated Bus Marker -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="relative w-8 h-8 flex items-center justify-center">
+<div class="pulse-marker absolute inset-0 rounded-full"></div>
+<div class="relative bg-secondary text-on-secondary p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-[18px]">directions_bus</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bus Details Section -->
+<div class="px-container-margin -mt-8 relative z-10">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-lg p-5">
+<div class="flex justify-between items-center mb-4">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-primary">Vehicle Details</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tamil Nadu State Transport</p>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-bold text-label-bold">
+                        ETA: 8 MINS
+                    </div>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-outline-variant pt-4">
+<div class="flex items-center gap-3">
+<div class="bg-surface-container p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">tag</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-bold text-label-bold text-on-surface-variant uppercase tracking-tighter">Reg No.</span>
+<span class="font-body-md text-body-md font-bold">TN 58 AR 4201</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="bg-surface-container p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">account_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-bold text-label-bold text-on-surface-variant uppercase tracking-tighter">Driver</span>
+<span class="font-body-md text-body-md font-bold">R. Pandian</span>
+</div>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-lg flex items-center justify-center gap-2 font-headline-sm text-headline-sm transition-all active:opacity-80">
+<span class="material-symbols-outlined text-[20px]">call</span>
+                        Contact Driver
+                    </button>
+<button class="w-14 h-14 bg-surface-container-high text-primary border border-outline-variant rounded-lg flex items-center justify-center transition-all active:scale-95">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Weekly Schedule -->
+<section class="px-container-margin mt-stack-gap">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Weekly Schedule</h3>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="p-3 font-label-bold text-label-bold text-on-surface-variant">DAY</th>
+<th class="p-3 font-label-bold text-label-bold text-on-surface-variant">MORNING</th>
+<th class="p-3 font-label-bold text-label-bold text-on-surface-variant">EVENING</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="p-3 font-label-bold text-label-bold text-primary">MON - FRI</td>
+<td class="p-3 font-body-sm text-body-sm">07:45 AM</td>
+<td class="p-3 font-body-sm text-body-sm">04:30 PM</td>
+</tr>
+<tr class="bg-primary/5 hover:bg-primary/10 transition-colors">
+<td class="p-3 font-label-bold text-label-bold text-primary">SATURDAY</td>
+<td class="p-3 font-body-sm text-body-sm">08:30 AM</td>
+<td class="p-3 font-body-sm text-body-sm">01:00 PM</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors opacity-50">
+<td class="p-3 font-label-bold text-label-bold text-primary">SUNDAY</td>
+<td class="p-3 font-body-sm text-body-sm" colspan="2">No Service</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Reporting Section -->
+<section class="px-container-margin mt-stack-gap mb-10">
+<div class="bg-error-container/10 border border-error/20 p-4 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error">report_problem</span>
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-error">Problem with the bus?</span>
+<span class="text-body-sm text-body-sm text-on-surface-variant">Late arrival or tracking issues</span>
+</div>
+</div>
+<button class="bg-error text-on-error px-4 py-2 rounded-lg font-label-bold text-label-bold active:scale-95 transition-transform">
+                    Report Issue
+                </button>
+</div>
+</section>
+</main>
+<!-- Navigation Shell Logic Mapping -->
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface-container border-t border-outline-variant shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-2 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-2 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary font-bold hover:bg-surface-container-highest/50 p-2 rounded-xl transition-all scale-105" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_bus</span>
+<span class="font-label-md text-label-md">More</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-2 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-md text-label-md">Fees</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 p-2 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Academics</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for the map tracking
+        document.addEventListener('DOMContentLoaded', () => {
+            const etaBadge = document.querySelector('.bg-secondary-container');
+            let etaValue = 8;
+            
+            // Subtle countdown simulation
+            const timer = setInterval(() => {
+                if(Math.random() > 0.7) {
+                    etaValue = Math.max(1, etaValue - 1);
+                    etaBadge.innerText = `ETA: ${etaValue} MINS`;
+                    if(etaValue <= 3) {
+                        etaBadge.classList.replace('bg-secondary-container', 'bg-error');
+                        etaBadge.classList.add('text-white');
+                    }
+                }
+                if(etaValue === 1) clearInterval(timer);
+            }, 15000);
+        });
+    </script>
+</body></html>
